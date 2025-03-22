@@ -30,4 +30,13 @@ require("lazy").setup({
     { 'neoclide/coc.nvim', branch = 'release' },
 
     'echasnovski/mini.nvim',
+
+    {
+        'folke/todo-comments.nvim',
+        event = 'VimEnter',
+        dependencies = { 'nvim-lua/plenary.nvim' },
+        opts = { signs = false },
+    },
+
+    'lewis6991/gitsigns.nvim',
 })
