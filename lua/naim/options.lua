@@ -80,3 +80,7 @@ vim.opt.shiftwidth = 4
 -- Mark the 80th column
 vim.opt.colorcolumn = '80'
 vim.opt.textwidth = 80
+
+-- Disable backups, some LSPs have issues
+vim.opt.backup = false
+vim.opt.writebackup = false
