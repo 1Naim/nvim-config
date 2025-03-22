@@ -17,5 +17,9 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 
 require("lazy").setup({
     'Shatur/neovim-ayu',
-    'nvim-telescope/telescope.nvim',
+
+    {
+        'nvim-telescope/telescope.nvim',
+        dependencies = { 'nvim-lua/plenary.nvim' }
+    },
 })
