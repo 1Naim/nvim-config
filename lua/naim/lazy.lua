@@ -28,4 +28,6 @@ require("lazy").setup({
     },
 
     { 'neoclide/coc.nvim', branch = 'release' },
+
+    'echasnovski/mini.nvim',
 })

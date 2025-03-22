@@ -1,6 +1,7 @@
 {
   "coc.nvim": { "branch": "release", "commit": "da20bea23b6226e5859a06137b841c6853599f22" },
   "lazy.nvim": { "branch": "main", "commit": "6c3bda4aca61a13a9c63f1c1d1b16b9d3be90d7a" },
+  "mini.nvim": { "branch": "main", "commit": "5012cc35cebbdd97ab4f5906bcd713494d97b52e" },
   "neovim-ayu": { "branch": "master", "commit": "f5da37a8ddd62fc3a7b28900c4d1b807a3582584" },
   "nvim-treesitter": { "branch": "master", "commit": "e70cb73e943db7483b0ea86a55e80d471bcb995c" },
   "plenary.nvim": { "branch": "master", "commit": "857c5ac632080dba10aae49dba902ce3abf91b35" },
