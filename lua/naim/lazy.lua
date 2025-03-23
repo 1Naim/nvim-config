@@ -15,6 +15,9 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
         end
         vim.opt.rtp:prepend(lazypath)
 
+require("lazy").setup("naim.plugins")
+
+--[[
 require("lazy").setup({
     'Shatur/neovim-ayu',
 
@@ -42,3 +45,4 @@ require("lazy").setup({
     'tpope/vim-fugitive',
     'm4xshen/autoclose.nvim',
 })
+--]]

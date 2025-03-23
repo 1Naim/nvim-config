@@ -5,22 +5,14 @@
     "diagnostic.infoSign": "ℹ️",
     "diagnostic.hintSign": "💡",
     "diagnostic.enableMessage": "jump",
-    "suggest.enablePreview": true,
-    "clangd": {
-        "fallbackFlags": [
-            "-std=c++2b"
-        ],
-        "checkUpdates": true,
-        "arguments": [
-            "--completion-style=detailed",
-            "--header-insertion-decorators",
-            "--enable-config",
-            "-j=12",
-            "--log=verbose",
-            "--pretty"
-        ]
-    },
-    "semanticTokens.filetypes": [
-        "*"
-    ],
+
+    "clangd.arguments": [
+        "--clang-tidy",
+        "--completion-style=detailed",
+        "--header-insertion-decorators",
+        "--enable-config",
+        "-j=12",
+        "--log=verbose",
+        "--pretty"
+    ]
 }
