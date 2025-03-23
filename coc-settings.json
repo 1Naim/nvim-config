@@ -1,5 +1,5 @@
 {
-    "codeLens.enable": true,
+    "codeLens.enable": false,
     "diagnostic.errorSign": "❗",
     "diagnostic.warningSign": "⚠️",
     "diagnostic.infoSign": "ℹ️",
@@ -14,5 +14,6 @@
         "-j=12",
         "--log=verbose",
         "--pretty"
-    ]
+    ],
+    "Lua.diagnostics.globals": [ "vim" ],
 }
