@@ -11,38 +11,8 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
         }, true, {})
         vim.fn.getchar()
         os.exit(1)
-        end
-        end
-        vim.opt.rtp:prepend(lazypath)
+    end
+end
+vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("naim.plugins")
-
---[[
-require("lazy").setup({
-    'Shatur/neovim-ayu',
-
-    {
-        'nvim-telescope/telescope.nvim',
-        dependencies = { 'nvim-lua/plenary.nvim' }
-    },
-
-    {
-        'nvim-treesitter/nvim-treesitter', build = ':TSUpdate'
-    },
-
-    { 'neoclide/coc.nvim', branch = 'release' },
-
-    'echasnovski/mini.nvim',
-
-    {
-        'folke/todo-comments.nvim',
-        event = 'VimEnter',
-        dependencies = { 'nvim-lua/plenary.nvim' },
-        opts = { signs = false },
-    },
-
-    'lewis6991/gitsigns.nvim',
-    'tpope/vim-fugitive',
-    'm4xshen/autoclose.nvim',
-})
---]]
