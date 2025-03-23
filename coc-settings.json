@@ -4,7 +4,7 @@
     "diagnostic.warningSign": "⚠️",
     "diagnostic.infoSign": "ℹ️",
     "diagnostic.hintSign": "💡",
-    "diagnostic.enableMessage": "jump",
+    "diagnostic.virtualText": true,
 
     "clangd.arguments": [
         "--clang-tidy",
@@ -15,5 +15,7 @@
         "--log=verbose",
         "--pretty"
     ],
-    "Lua.diagnostics.globals": [ "vim" ],
+    "Lua.diagnostics.globals": [
+      "vim"
+    ],
 }
