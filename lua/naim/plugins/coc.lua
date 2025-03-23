@@ -23,8 +23,8 @@ return {
         keyset("i", "<C-space>", "coc#refresh()", { silent = true, expr = true })
 
         -- Navigation for diagnostics
-        keyset("n", "[g", "<Plug>(coc-diagnostic-prev)", { silent = true })
-        keyset("n", "]g", "<Plug>(coc-diagnostic-next)", { silent = true })
+        keyset("n", "[d", "<Plug>(coc-diagnostic-prev)", { silent = true })
+        keyset("n", "]d", "<Plug>(coc-diagnostic-next)", { silent = true })
 
         -- GoTo definitions
         keyset("n", "gd", "<Plug>(coc-definition)", { silent = true })

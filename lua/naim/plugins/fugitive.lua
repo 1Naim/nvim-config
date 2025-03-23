@@ -20,17 +20,12 @@ return {
                 end, opts)
 
                 vim.keymap.set("n", "<leader>gP", function()
-                    vim.cmd.Git({'push'})
+                    vim.cmd.Git('push')
                 end, opts)
 
-                vim.keymap.set("n", "<leader>ga", function()
-                    vim.cmd.Git({'add', '-u'})
-                end, opts)
-
-                vim.keymap.set("n", "<leader>gc", function()
-                    vim.cmd.Git({'commit', '-s'})
-                end, opts)
-            end,
+                vim.keymap.set("n", "<leader>ga", ":Git add -u<CR>", opts)
+                vim.keymap.set("n", "<leader>gc", ":Git commit -s<CR>", opts)
+          end,
         })
     end
 }
