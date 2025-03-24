@@ -17,7 +17,7 @@ vim.keymap.set("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 -- Tab navigation
-vim.keymap.set("n", "<C-t>", "<cmd>tabnew<CR>")
+vim.keymap.set("n", "<C-n>", "<cmd>tabnew<CR>")
 vim.keymap.set("n", "<C-x>", "<cmd>tabclose<CR>")
 
 -- Short handle for executing shell commands
