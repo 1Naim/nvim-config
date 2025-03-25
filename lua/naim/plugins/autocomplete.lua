@@ -8,7 +8,8 @@ return {
 
             ['<S-TAB>'] = { 'select_prev', 'fallback' },
             ['<TAB>'] = { 'select_next', 'fallback' },
-    },
+        },
+
         appearance = {
             nerd_font_variant = 'mono',
         },
