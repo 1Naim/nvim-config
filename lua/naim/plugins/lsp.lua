@@ -139,7 +139,10 @@ return {
             capabilities = vim.tbl_deep_extend('force', capabilities, require('blink.cmp').get_lsp_capabilities())
 
             local servers = {
-                clangd = {},
+                clangd = {
+                    cmd = { "clangd", "--clang-tidy", "--completion-style=detailed",
+                            "-j=12", "--header-insertion-decorators" },
+                },
                 rust_analyzer = {},
                 lua_ls = {
                     settings = {

@@ -22,3 +22,5 @@ vim.keymap.set("n", "<C-x>", "<cmd>tabclose<CR>")
 
 -- Short handle for executing shell commands
 vim.keymap.set("n", "<C-s>", ":!")
+
+vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
