@@ -4,7 +4,6 @@ return {
         dependencies = {
             { 'williamboman/mason.nvim', opts = {} },
             'williamboman/mason-lspconfig.nvim',
-            'WhoIsSethDaniel/mason-tool-installer.nvim',
 
             -- Status updates for LSP
             { 'j-hui/fidget.nvim', opts = {} },
