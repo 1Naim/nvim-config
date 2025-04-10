@@ -130,9 +130,9 @@ return {
                 },
             }
 
-           --  When you add blink.cmp, luasnip, etc. Neovim now has *more* capabilities.
-           --  So, we create new capabilities with blink.cmp, and then broadcast that to the servers.
-           local capabilities = require('blink.cmp').get_lsp_capabilities()
+            --  When you add blink.cmp, luasnip, etc. Neovim now has *more* capabilities.
+            --  So, we create new capabilities with blink.cmp, and then broadcast that to the servers.
+            local capabilities = require('blink.cmp').get_lsp_capabilities()
 
             local servers = {
                 clangd = {
