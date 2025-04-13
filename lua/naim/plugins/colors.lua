@@ -11,6 +11,13 @@ return {
                 return {
                     Comment = { fg = colors.comment },
                     LineNr = { fg = colors.comment },
+                    BlinkCmpMenu = { fg = colors.comment },
+                    BlinkCmpMenuBorder = { fg = colors.accent },
+                    BlinkCmpMenuSelection = {
+                        fg = colors.accent,
+                        reverse = true,
+                    },
+                    BlinkCmpGhostText = { fg = colors.comment },
                 }
             end
         }
