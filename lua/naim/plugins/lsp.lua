@@ -131,6 +131,13 @@ return {
             }
 
             local servers = {
+                bashls = {
+                    settings = {
+                        bashIde = {
+                            shellcheckArguments = "-e SC2034,SC2154"
+                        },
+                    },
+                },
                 clangd = {
                     cmd = { "clangd", "--clang-tidy", "--completion-style=detailed",
                             "-j=12", "--header-insertion-decorators" },

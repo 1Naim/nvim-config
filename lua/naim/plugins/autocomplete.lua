@@ -30,8 +30,20 @@ return {
             documentation = { auto_show = false, auto_show_delay_ms = 500 },
         },
 
-        sources = { default = { 'lsp', 'path', 'snippets' } },
+        sources = {
+            default = { 'lsp', 'path', 'snippets' },
+            providers = {
+                path = {
+                    opts = {
+                        get_cwd = function(_)
+                            return vim.fn.getcwd()
+                        end,
+                    },
+                },
+            },
+        },
 
         signature = { enabled = true },
+
     }
 }
