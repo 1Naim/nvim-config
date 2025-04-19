@@ -13,6 +13,7 @@ return {
             enabled = true,
             animate = { enabled = false },
         },
+        notifier = { enabled = true },
         picker = { enabled = true },
     },
     keys = {
