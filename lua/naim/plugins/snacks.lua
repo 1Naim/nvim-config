@@ -9,7 +9,10 @@ return {
             replace_netrw = true,
         },
         dashboard = { enabled = true },
-        indent = { enabled = true },
+        indent = {
+            enabled = true,
+            animate = { enabled = false },
+        },
         picker = { enabled = true },
     },
     keys = {
