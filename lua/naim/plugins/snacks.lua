@@ -9,13 +9,14 @@ return {
             replace_netrw = true,
         },
         dashboard = { enabled = true },
+        gitbrowse = { enabled = true },
         indent = {
             enabled = true,
             animate = { enabled = false },
             scope = { hl = 'IndentBlanklineContextChar' },
         },
         notifier = { enabled = true },
-        picker = { enabled = true },
+        picker = { enabled = true, hidden = true },
     },
     keys = {
         { '<leader>sh', function() Snacks.picker.help() end, desc = '[S]earch [H]elp' },
@@ -33,6 +34,7 @@ return {
         { '<leader>s.', function() Snacks.picker.recent() end, desc = '[S]earch Recent Files ("." for repeat)' },
         { '<leader><leader>', function() Snacks.picker.buffers() end, desc = '[ ] Find existing buffers' },
         { '<leader>ee', function() Snacks.explorer() end, desc = '[E]xecute [E]xplorer' },
+        { '<leader>gb', function() Snacks.gitbrowse() end, desc = '[E]xecute [E]xplorer' },
 
     },
 }
