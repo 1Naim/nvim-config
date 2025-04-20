@@ -77,10 +77,6 @@ vim.o.shiftwidth = 4
 vim.o.colorcolumn = '80'
 vim.o.textwidth = 80
 
--- Disable backups, some LSPs have issues
-vim.o.backup = false
-vim.o.writebackup = false
-
 -- Search options
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
