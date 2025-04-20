@@ -12,6 +12,7 @@ return {
         indent = {
             enabled = true,
             animate = { enabled = false },
+            scope = { hl = 'IndentBlanklineContextChar' },
         },
         notifier = { enabled = true },
         picker = { enabled = true },

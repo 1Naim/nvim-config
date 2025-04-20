@@ -17,5 +17,6 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup {
     spec = "naim.plugins",
+    install = { colorscheme = { "ayu", "habamax" } },
     change_detection = { notify = false },
 }
