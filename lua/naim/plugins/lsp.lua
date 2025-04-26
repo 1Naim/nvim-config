@@ -181,7 +181,8 @@ return {
                 },
                 clangd = {
                     cmd = { "clangd", "--clang-tidy", "--completion-style=detailed",
-                            "-j=12", "--header-insertion-decorators", "--pretty" },
+                            "-j=12", "--header-insertion-decorators", "--pretty",
+                            "--enable-config" },
                 },
                 rust_analyzer = {},
                 lua_ls = {
