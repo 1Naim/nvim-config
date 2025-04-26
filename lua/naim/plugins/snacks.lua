@@ -30,6 +30,7 @@ return {
         { '<leader>sw', function() Snacks.picker.grep_word() end, desc = '[S]earch current [W]ord' },
         { '<leader>sg', function() Snacks.picker.grep() end, desc = '[S]earch by [G]rep' },
         { '<leader>sd', function() Snacks.picker.diagnostics() end, desc = '[S]earch [D]iagnostics' },
+        { '<leader>su', function() Snacks.picker.undo() end, desc = '[S]earch [U]ndo' },
         { '<leader>sr', function() Snacks.picker.resume() end, desc = '[S]earch [R]esume' },
         { '<leader>s.', function() Snacks.picker.recent() end, desc = '[S]earch Recent Files ("." for repeat)' },
         { '<leader><leader>', function() Snacks.picker.buffers() end, desc = '[ ] Find existing buffers' },
