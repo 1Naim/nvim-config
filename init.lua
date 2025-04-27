@@ -106,5 +106,3 @@ require("naim.maps")
 require("naim.misc")
 
 vim.cmd.colorscheme("ayu-dark")
-
-

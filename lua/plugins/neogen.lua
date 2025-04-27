@@ -4,6 +4,10 @@ return {
         require("neogen").setup()
 
         local opts = { noremap = true, silent = true }
-        vim.api.nvim_set_keymap("n", "<Leader>cd", ":lua require('neogen').generate()<CR>", opts)
+        local keymap_set = vim.api.nvim_set_keymap
+        keymap_set("n", "<Leader>nf", ":lua require('neogen').generate({ type = 'func' })<CR>", opts)
+        keymap_set("n", "<Leader>nc", ":lua require('neogen').generate({ type = 'class' })<CR>", opts)
+        keymap_set("n", "<Leader>ni", ":lua require('neogen').generate({ type = 'file' })<CR>", opts)
+        keymap_set("n", "<Leader>nt", ":lua require('neogen').generate({ type = 'type' })<CR>", opts)
     end
 }
