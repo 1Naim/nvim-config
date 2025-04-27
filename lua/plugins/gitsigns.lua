@@ -32,7 +32,7 @@ return {
             changedelete = { text = '~' },
         },
         on_attach = function()
-            git_my_lines()  -- Run only after gitsigns loads
+            git_my_lines() -- Run only after gitsigns loads
         end,
     },
 }

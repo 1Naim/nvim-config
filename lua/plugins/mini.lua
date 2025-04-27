@@ -5,7 +5,7 @@ return {
         config = function()
             require('mini.icons').setup()
             MiniIcons.mock_nvim_web_devicons()
-        end
+        end,
     },
     {
         'echasnovski/mini.statusline',
@@ -18,8 +18,7 @@ return {
             require('mini.statusline').section_location = function()
                 return '%2l:%-2v'
             end
-
-        end
+        end,
     },
     {
         'echasnovski/mini.ai',

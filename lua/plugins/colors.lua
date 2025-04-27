@@ -3,7 +3,7 @@ return {
     priority = 1000,
     lazy = false,
     config = function()
-        local colors = require('ayu.colors')
+        local colors = require 'ayu.colors'
         colors.generate() -- Pass `true` to enable mirage
 
         require('ayu').setup {
@@ -19,7 +19,7 @@ return {
                     },
                     BlinkCmpGhostText = { fg = colors.comment },
                 }
-            end
+            end,
         }
-    end
+    end,
 }

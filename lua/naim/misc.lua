@@ -13,7 +13,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
     pattern = { '*' },
     callback = function()
-
         local blacklist = {
             ['gitsendemail'] = true,
             ['diff'] = true,

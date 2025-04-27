@@ -4,8 +4,15 @@ return {
     main = 'nvim-treesitter.configs',
     opts = {
         ensure_installed = {
-            "bash", "c", "cpp", "diff", "lua", "markdown", "markdown_inline",
-            "rust", "vim"
+            'bash',
+            'c',
+            'cpp',
+            'diff',
+            'lua',
+            'markdown',
+            'markdown_inline',
+            'rust',
+            'vim',
         },
         auto_install = true,
         sync_install = false,
@@ -15,10 +22,7 @@ return {
                 local max_filesize = 1024 * 1024 * 25 -- 25MB
                 local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
                 if ok and stats and stats.size > max_filesize then
-                    vim.notify(
-                        "Disabling treesitter because filesize is too large",
-                        vim.log.levels.WARN,
-                        { title = "Treesitter" })
+                    vim.notify('Disabling treesitter because filesize is too large', vim.log.levels.WARN, { title = 'Treesitter' })
                     return true
                 end
             end,
@@ -26,6 +30,6 @@ return {
         },
         indent = { enable = false },
 
-        vim.treesitter.language.register("bash", "PKGBUILD")
+        vim.treesitter.language.register('bash', 'PKGBUILD'),
     },
 }

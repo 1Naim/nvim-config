@@ -46,10 +46,10 @@ return {
                                 local _, hl, _ = require('mini.icons').get('lsp', ctx.kind)
                                 return hl
                             end,
-                        }
-                    }
-                }
-            }
+                        },
+                    },
+                },
+            },
         },
 
         sources = {
@@ -66,6 +66,5 @@ return {
         },
 
         signature = { enabled = true },
-
-    }
+    },
 }
