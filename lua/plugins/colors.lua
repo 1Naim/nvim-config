@@ -9,7 +9,7 @@ return {
         require('ayu').setup {
             overrides = function()
                 return {
-                    Comment = { fg = colors.comment },
+                    Comment = { fg = colors.comment, italic = false },
                     LineNr = { fg = colors.comment },
                     BlinkCmpMenu = { fg = colors.comment },
                     BlinkCmpMenuBorder = { fg = colors.accent },
@@ -21,7 +21,5 @@ return {
                 }
             end
         }
-
-        vim.cmd.colorscheme("ayu-dark")
     end
 }
