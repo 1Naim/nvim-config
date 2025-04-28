@@ -31,6 +31,9 @@ vim.o.breakindent = true
 -- Save undo history
 vim.o.undofile = true
 
+-- Disable backups
+vim.o.backup = false
+
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
 vim.o.ignorecase = true
 vim.o.smartcase = true
@@ -53,9 +56,6 @@ vim.o.splitbelow = true
 --  and `:help 'listchars'`
 vim.o.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
-
--- Preview substitutions live, as you type!
-vim.o.inccommand = 'split'
 
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.o.scrolloff = 12
