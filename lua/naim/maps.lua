@@ -24,6 +24,9 @@ vim.keymap.set('n', '<leader>x', '<cmd>!chmod +x %<CR>', { silent = true })
 -- Tab navigation
 vim.keymap.set('n', '<C-n>', '<cmd>tabnew<CR>')
 vim.keymap.set('n', '<C-x>', '<cmd>tabclose<CR>')
+vim.keymap.set('n', '<A-PageUp>', '<C-PageUp>')
+vim.keymap.set('n', '<A-PageDown>', '<C-PageDown>')
+
 
 -- Short handle for executing shell commands
 vim.keymap.set('n', '<C-s>', ':!')
