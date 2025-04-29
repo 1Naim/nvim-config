@@ -28,4 +28,7 @@ vim.keymap.set('n', '<C-x>', '<cmd>tabclose<CR>')
 -- Short handle for executing shell commands
 vim.keymap.set('n', '<C-s>', ':!')
 
+-- Shortcut for selecting all lines
+vim.keymap.set('n', '<leader>a', 'ggVG')
+
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
