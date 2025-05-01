@@ -97,7 +97,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup {
-    import = 'plugins',
+    spec = { { import = 'plugins' } },
     install = { colorscheme = { 'ayu', 'habamax' } },
     change_detection = { notify = false },
 }
