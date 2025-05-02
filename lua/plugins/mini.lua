@@ -26,6 +26,16 @@ return {
         opts = {},
     },
     {
+        'echasnovski/mini.diff',
+        version = '*',
+        opts = {
+            view = {
+                style = 'sign',
+                signs = { add = '+', change = '~', delete = '-' }
+            },
+        },
+    },
+    {
         'echasnovski/mini.ai',
         version = '*',
         opts = {},
