@@ -21,6 +21,11 @@ return {
         end,
     },
     {
+        'echasnovski/mini.tabline',
+        version = '*',
+        opts = {},
+    },
+    {
         'echasnovski/mini.ai',
         version = '*',
         opts = {},
