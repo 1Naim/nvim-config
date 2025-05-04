@@ -15,7 +15,8 @@ return {
         -- tabline
         require('mini.tabline').setup()
 
-        -- diff
+        -- git
+        require('mini.git').setup()
         require('mini.diff').setup {
             view = {
                 style = 'sign',
