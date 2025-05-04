@@ -8,7 +8,7 @@ return {
             enabled = true,
             replace_netrw = true,
         },
-        dashboard = { enabled = true, example = 'pokemon' },
+        dashboard = { enabled = true },
         gitbrowse = { enabled = true },
         indent = {
             enabled = true,
