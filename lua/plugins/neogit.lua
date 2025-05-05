@@ -1,15 +1,12 @@
 return {
-    '1Naim/neogit', -- change when snacks.picker integration is merged
+    'NeogitOrg/neogit',
     lazy = true,
     dependencies = {
         "nvim-lua/plenary.nvim",         -- required
-
         'folke/snacks.nvim' -- snacks.picker
     },
     opts = {
-        integrations = {
-            snacks = true,
-        }
+        integrations = { snacks = true }
     },
     keys = {
         {
