@@ -199,14 +199,6 @@ return {
 
             require('mason-lspconfig').setup {
                 ensure_installed = { 'clangd' },
-                automatic_installation = false,
-                handlers = {
-                    function(server_name)
-                        local config = servers[server_name] or {}
-                        vim.lsp.config(server_name, config)
-                        vim.lsp.enable(server_name)
-                    end,
-                },
             }
         end,
     },
