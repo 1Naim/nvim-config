@@ -197,6 +197,12 @@ return {
                 },
             }
 
+            -- mason-lspconfig.nvim 2.0.0 removed the handler function
+            -- Now vim.lsp.config must be explicitly called (duh!)
+            for server, config in pairs(servers) do
+                vim.lsp.config(server, config)
+            end
+
             require('mason-lspconfig').setup {
                 ensure_installed = { 'clangd' },
             }
