@@ -11,8 +11,6 @@ return {
                 return {
                     Comment = { fg = colors.comment, italic = false },
                     LineNr = { fg = colors.comment },
-                    BlinkCmpMenu = { fg = colors.comment },
-                    BlinkCmpMenuBorder = { fg = colors.accent },
                     BlinkCmpMenuSelection = {
                         fg = colors.accent,
                         reverse = true,
