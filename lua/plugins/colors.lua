@@ -18,6 +18,15 @@ return {
                         reverse = true,
                     },
                     BlinkCmpGhostText = { fg = colors.comment },
+                    -- Transparency
+                    Normal = { bg = 'None' },
+                    NormalFloat = { bg = 'none' },
+                    SignColumn = { bg = 'None' },
+                    Folded = { bg = 'None' },
+                    FoldColumn = { bg = 'None' },
+                    CursorLine = { bg = 'None' },
+                    CursorColumn = { bg = 'None' },
+                    VertSplit = { bg = 'None' },
                 }
             end,
         }
