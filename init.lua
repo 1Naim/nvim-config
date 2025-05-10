@@ -25,6 +25,9 @@ vim.api.nvim_create_autocmd('UIEnter', {
     end,
 })
 
+-- Options for insert completion
+vim.o.completeopt = 'menu,menuone,noinsert,popup,fuzzy'
+
 -- Enable break indent
 vim.o.breakindent = true
 
