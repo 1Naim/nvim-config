@@ -48,7 +48,7 @@ return {
             desc = '[F]ind [N]eovim Config',
         },
         {
-            '<leader>gf',
+            '<leader>fg',
             function()
                 Snacks.picker.git_files()
             end,
@@ -97,11 +97,11 @@ return {
             desc = '[S]earch [R]esume',
         },
         {
-            '<leader>s.',
+            '<leader>f.',
             function()
                 Snacks.picker.recent()
             end,
-            desc = '[S]earch Recent Files ("." for repeat)',
+            desc = '[F]iles Recent ("." for repeat)',
         },
         {
             '<leader><leader>',
