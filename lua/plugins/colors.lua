@@ -17,7 +17,7 @@ return {
                         fg = colors.accent,
                         reverse = true,
                     },
-                    BlinkCmpGhostText = { fg = colors.comment },
+                    NonText = { fg = '#3C424E' },
                     -- Transparency
                     Normal = { bg = 'None' },
                     NormalFloat = { bg = 'none' },
