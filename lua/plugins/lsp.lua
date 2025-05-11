@@ -104,6 +104,7 @@ return {
 
                         -- Native Autocomplete
                         if client_supports_method(client, vim.lsp.protocol.textDocument_completion, event.buf) then
+                            vim.opt.shm:append 'c'
                             -- Trigger autocomplete on every keystroke
                             local chars = {}
                             for i = 32, 126 do

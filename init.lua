@@ -5,8 +5,6 @@ vim.g.maplocalleader = ' '
 
 vim.g.have_nerd_font = true
 
-vim.o.shm = "ltToOcCF"
-
 -- Make line numbers default
 vim.o.number = true
 vim.o.relativenumber = true
