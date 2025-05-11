@@ -4,7 +4,6 @@ return {
     lazy = false,
     ---@type snacks.Config
     opts = {
-        dashboard = { enabled = true },
         gitbrowse = { enabled = true },
         indent = {
             enabled = true,
