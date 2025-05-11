@@ -26,7 +26,7 @@ return {
 
                     -- Jump to the implementation of the word under your cursor.
                     --  Useful when your language has ways of declaring types without an actual implementation.
-                    map('gI', snacks_picker.lsp_implementations, '[G]oto [I]mplementation')
+                    map('gi', snacks_picker.lsp_implementations, '[G]oto [I]mplementation')
 
                     -- Jump to the type of the word under your cursor.
                     --  Useful when you're not sure what type a variable is and you want to see
@@ -47,7 +47,7 @@ return {
 
                     -- Execute a code action, usually your cursor needs to be on top of an error
                     -- or a suggestion from your LSP for this to activate.
-                    map('gc', vim.lsp.buf.code_action, '[C]ode [A]ction', { 'n', 'x' })
+                    map('ga', vim.lsp.buf.code_action, '[C]ode [A]ction', { 'n', 'x' })
 
                     -- WARN: This is not Goto Definition, this is Goto Declaration.
                     --  For example, in C this would take you to the header.

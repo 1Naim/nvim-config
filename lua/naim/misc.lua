@@ -30,3 +30,11 @@ vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
         vim.fn.setpos('.', save_cursor)
     end,
 })
+
+-- Use multi-block comments for c and cpp
+vim.api.nvim_create_autocmd('FileType', {
+    pattern = { 'c', 'cpp' },
+    callback = function()
+        vim.bo.commentstring = '/* %s */'
+    end,
+})
