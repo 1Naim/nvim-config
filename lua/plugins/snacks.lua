@@ -4,10 +4,6 @@ return {
     lazy = false,
     ---@type snacks.Config
     opts = {
-        explorer = {
-            enabled = true,
-            replace_netrw = true,
-        },
         dashboard = { enabled = true },
         gitbrowse = { enabled = true },
         indent = {
