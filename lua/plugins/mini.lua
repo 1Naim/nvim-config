@@ -28,5 +28,8 @@ return {
         -- textobjects
         require('mini.ai').setup()
         require('mini.surround').setup()
+
+        -- autochdir
+        require('mini.misc').setup_auto_root()
     end,
 }
