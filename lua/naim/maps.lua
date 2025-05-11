@@ -28,3 +28,6 @@ vim.keymap.set('n', '<C-s>', ':!')
 vim.keymap.set('n', '<leader>a', 'ggVG')
 
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+
+-- netrw
+vim.keymap.set('n', '<leader>e', vim.cmd.Ex)
