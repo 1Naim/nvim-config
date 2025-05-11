@@ -15,6 +15,12 @@ return {
         -- tabline
         require('mini.tabline').setup()
 
+        -- Indent scope
+        require('mini.indentscope').setup {
+            draw = { animation = require('mini.indentscope').gen_animation.none() },
+            symbol = '│',
+        }
+
         -- git
         require('mini.git').setup()
         require('mini.diff').setup {

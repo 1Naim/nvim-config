@@ -5,11 +5,6 @@ return {
     ---@type snacks.Config
     opts = {
         gitbrowse = { enabled = true },
-        indent = {
-            enabled = true,
-            animate = { enabled = false },
-            scope = { hl = 'IndentBlanklineContextChar' },
-        },
         notifier = { enabled = true },
         picker = { enabled = true, hidden = true },
     },
