@@ -3,8 +3,15 @@ return {
         'neovim/nvim-lspconfig',
         event = { 'BufReadPre', 'BufNewFile', 'BufWritePre' },
         dependencies = {
-            { 'mason-org/mason.nvim', opts = {} },
-            'mason-org/mason-lspconfig.nvim',
+            {
+                'mason-org/mason.nvim',
+                opts = {},
+                cmd = { 'Mason', 'MasonUpdate', 'MasonInstall', 'MasonUninstall', 'MasonUninstallAll', 'MasonLog' }
+            },
+            {
+                'mason-org/mason-lspconfig.nvim',
+                cmd = { 'LspInstall', 'LspUninstall' },
+            },
         },
 
         config = function()
