@@ -15,6 +15,10 @@ return {
         -- tabline
         require('mini.tabline').setup()
 
+        -- netrw replacement
+        require('mini.files').setup()
+        vim.keymap.set('n', '<leader>e', MiniFiles.open)
+
         -- Indent scope
         require('mini.indentscope').setup {
             draw = { animation = require('mini.indentscope').gen_animation.none() },
