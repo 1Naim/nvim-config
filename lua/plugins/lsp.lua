@@ -1,6 +1,7 @@
 return {
     {
         'neovim/nvim-lspconfig',
+        event = { 'BufReadPre', 'BufNewFile', 'BufWritePre' },
         dependencies = {
             { 'mason-org/mason.nvim', opts = {} },
             'mason-org/mason-lspconfig.nvim',
@@ -95,7 +96,7 @@ return {
                         end
 
                         -- Toggle inlay hints
-                        if client and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf) then
+                        if client_supports_method(client, vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf) then
                             vim.lsp.inlay_hint.enable(true, { bufnr = event.buf })
                             map('<leader>th', function()
                                 vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
