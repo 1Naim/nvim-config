@@ -12,6 +12,7 @@ return {
                 'mason-org/mason-lspconfig.nvim',
                 cmd = { 'LspInstall', 'LspUninstall' },
             },
+            'echasnovski/mini.nvim', -- Tweak LSP kind
         },
 
         config = function()
@@ -120,6 +121,7 @@ return {
                             end
                             client.server_capabilities.completionProvider.triggerCharacters = chars
 
+                            require('mini.icons').tweak_lsp_kind()
                             vim.lsp.completion.enable(true, client.id, event.buf, { autotrigger = true })
 
                             -- Manually trigger completeion
