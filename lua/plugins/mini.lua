@@ -2,7 +2,6 @@ return {
     'echasnovski/mini.nvim',
     config = function()
         require('mini.icons').setup()
-        MiniIcons.mock_nvim_web_devicons()
 
         -- statusline
         local statusline = require 'mini.statusline'
