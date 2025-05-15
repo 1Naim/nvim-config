@@ -136,97 +136,95 @@ local function lsp_config(event)
 end
 
 return {
-    {
-        'neovim/nvim-lspconfig',
-        event = { 'BufReadPre', 'BufNewFile', 'BufWritePre' },
-        dependencies = {
-            {
-                'mason-org/mason.nvim',
-                opts = {},
-                cmd = { 'Mason', 'MasonUpdate', 'MasonInstall', 'MasonUninstall', 'MasonUninstallAll', 'MasonLog' }
-            },
-            {
-                'mason-org/mason-lspconfig.nvim',
-                cmd = { 'LspInstall', 'LspUninstall' },
-            },
-            'echasnovski/mini.nvim', -- Tweak LSP kind
+    'neovim/nvim-lspconfig',
+    event = { 'BufReadPre', 'BufNewFile', 'BufWritePre' },
+    dependencies = {
+        {
+            'mason-org/mason.nvim',
+            opts = {},
+            cmd = { 'Mason', 'MasonUpdate', 'MasonInstall', 'MasonUninstall', 'MasonUninstallAll', 'MasonLog' }
         },
-
-        config = function()
-            vim.api.nvim_create_autocmd('LspAttach', {
-                group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
-                callback = lsp_config
-            })
-
-            -- Diagnostic Config
-            -- See :help vim.diagnostic.Opts
-            vim.diagnostic.config {
-                severity_sort = true,
-                float = { border = 'rounded', source = 'if_many' },
-                underline = { severity = vim.diagnostic.severity.ERROR },
-                signs = vim.g.have_nerd_font and {
-                    text = {
-                        [vim.diagnostic.severity.ERROR] = '󰅚 ',
-                        [vim.diagnostic.severity.WARN] = '󰀪 ',
-                        [vim.diagnostic.severity.INFO] = '󰋽 ',
-                        [vim.diagnostic.severity.HINT] = '󰌶 ',
-                    },
-                } or {},
-                virtual_text = {
-                    source = 'if_many',
-                    spacing = 2,
-                    format = function(diagnostic)
-                        local diagnostic_message = {
-                            [vim.diagnostic.severity.ERROR] = diagnostic.message,
-                            [vim.diagnostic.severity.WARN] = diagnostic.message,
-                            [vim.diagnostic.severity.INFO] = diagnostic.message,
-                            [vim.diagnostic.severity.HINT] = diagnostic.message,
-                        }
-                        return diagnostic_message[diagnostic.severity]
-                    end,
-                },
-            }
-
-            local servers = {
-                bashls = {
-                    settings = {
-                        bashIde = {
-                            shellcheckArguments = '-e SC2034,SC2154',
-                        },
-                    },
-                },
-                clangd = {
-                    cmd = {
-                        'clangd',
-                        '--clang-tidy',
-                        '--completion-style=detailed',
-                        '-j=12',
-                        '--header-insertion-decorators',
-                        '--pretty',
-                        '--enable-config',
-                    },
-                },
-                lua_ls = {
-                    settings = {
-                        Lua = {
-                            completion = {
-                                callSnippet = 'Replace',
-                            },
-                            diagnostics = { globals = { 'vim' } },
-                        },
-                    },
-                },
-            }
-
-            -- mason-lspconfig.nvim 2.0.0 removed the handler function
-            -- Now vim.lsp.config must be explicitly called (duh!)
-            for server, config in pairs(servers) do
-                vim.lsp.config(server, config)
-            end
-
-            require('mason-lspconfig').setup {
-                ensure_installed = { 'clangd' },
-            }
-        end,
+        {
+            'mason-org/mason-lspconfig.nvim',
+            cmd = { 'LspInstall', 'LspUninstall' },
+        },
+        'echasnovski/mini.nvim', -- Tweak LSP kind
+        'folke/snacks.nvim', -- snacks.picker
     },
+    config = function()
+        vim.api.nvim_create_autocmd('LspAttach', {
+            group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
+            callback = lsp_config
+        })
+
+        -- Diagnostic Config
+        -- See :help vim.diagnostic.Opts
+        vim.diagnostic.config {
+            severity_sort = true,
+            float = { border = 'rounded', source = 'if_many' },
+            underline = { severity = vim.diagnostic.severity.ERROR },
+            signs = vim.g.have_nerd_font and {
+                text = {
+                    [vim.diagnostic.severity.ERROR] = '󰅚 ',
+                    [vim.diagnostic.severity.WARN] = '󰀪 ',
+                    [vim.diagnostic.severity.INFO] = '󰋽 ',
+                    [vim.diagnostic.severity.HINT] = '󰌶 ',
+                },
+            } or {},
+            virtual_text = {
+                source = 'if_many',
+                spacing = 2,
+                format = function(diagnostic)
+                    local diagnostic_message = {
+                        [vim.diagnostic.severity.ERROR] = diagnostic.message,
+                        [vim.diagnostic.severity.WARN] = diagnostic.message,
+                        [vim.diagnostic.severity.INFO] = diagnostic.message,
+                        [vim.diagnostic.severity.HINT] = diagnostic.message,
+                    }
+                    return diagnostic_message[diagnostic.severity]
+                end,
+            },
+        }
+
+        local servers = {
+            bashls = {
+                settings = {
+                    bashIde = {
+                        shellcheckArguments = '-e SC2034,SC2154',
+                    },
+                },
+            },
+            clangd = {
+                cmd = {
+                    'clangd',
+                    '--clang-tidy',
+                    '--completion-style=detailed',
+                    '-j=12',
+                    '--header-insertion-decorators',
+                    '--pretty',
+                    '--enable-config',
+                },
+            },
+            lua_ls = {
+                settings = {
+                    Lua = {
+                        completion = {
+                            callSnippet = 'Replace',
+                        },
+                        diagnostics = { globals = { 'vim' } },
+                    },
+                },
+            },
+        }
+
+        -- mason-lspconfig.nvim 2.0.0 removed the handler function
+        -- Now vim.lsp.config must be explicitly called (duh!)
+        for server, config in pairs(servers) do
+            vim.lsp.config(server, config)
+        end
+
+        require('mason-lspconfig').setup {
+            ensure_installed = { 'clangd' },
+        }
+    end,
 }
