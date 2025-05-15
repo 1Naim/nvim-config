@@ -83,14 +83,6 @@ local function lsp_config(event)
             })
         end
 
-        -- Toggle inlay hints
-        if client_supports_method(client, vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf) then
-            vim.lsp.inlay_hint.enable(true, { bufnr = event.buf })
-            map('<leader>th', function()
-                vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
-            end, '[T]oggle Inlay [H]ints')
-        end
-
         -- Native Autocomplete
         if client_supports_method(client, vim.lsp.protocol.textDocument_completion, event.buf) then
             vim.opt.shm:append 'c'
@@ -165,7 +157,6 @@ return {
                 group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
                 callback = lsp_config
             })
-
 
             -- Diagnostic Config
             -- See :help vim.diagnostic.Opts
