@@ -18,13 +18,12 @@ vim.keymap.set('x', 'p', [["_dP]])
 
 vim.keymap.set('i', '<C-c>', '<Esc>')
 
+vim.keymap.set('n', '<leader>d', '<cmd>%d<CR>')
+vim.keymap.set('n', '<leader>y', '<cmd>%y<CR>')
 vim.keymap.set('n', '<leader>r', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 vim.keymap.set('n', '<leader>x', '<cmd>!chmod +x %<CR>', { silent = true })
 
 -- Short handle for executing shell commands
 vim.keymap.set('n', '<C-s>', ':!')
-
--- Shortcut for selecting all lines
-vim.keymap.set('n', '<leader>a', 'ggVG')
 
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
