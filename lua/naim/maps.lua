@@ -18,6 +18,7 @@ vim.keymap.set('x', 'p', [["_dP]])
 
 vim.keymap.set('i', '<C-c>', '<Esc>')
 
+vim.keymap.set('n', '<leader>a', 'ggVG')
 vim.keymap.set('n', '<leader>d', '<cmd>%d<CR>')
 vim.keymap.set('n', '<leader>y', '<cmd>%y<CR>')
 vim.keymap.set('n', '<leader>r', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
