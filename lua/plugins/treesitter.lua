@@ -53,6 +53,7 @@ return {
     build = ':TSUpdate',
     config = function()
         vim.treesitter.language.register('bash', 'PKGBUILD')
+        vim.treesitter.language.register('diff', 'gitsendemail')
         install_and_start()
     end,
 }
