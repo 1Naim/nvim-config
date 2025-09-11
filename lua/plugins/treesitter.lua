@@ -40,6 +40,7 @@ local function install_and_start()
             return true
         end
         vim.treesitter.start(bufnr, parser_name)
+        vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
       end
     end,
   })

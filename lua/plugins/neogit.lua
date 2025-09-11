@@ -3,10 +3,10 @@ return {
     lazy = true,
     dependencies = {
         "nvim-lua/plenary.nvim",         -- required
-        'folke/snacks.nvim' -- snacks.picker
+        'nvim-mini/mini.nvim' -- mini.pick
     },
     opts = {
-        integrations = { snacks = true }
+        integrations = { mini_pick = true }
     },
     keys = {
         {

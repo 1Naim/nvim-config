@@ -7,28 +7,27 @@ local function lsp_config(event)
     -- Jump to the definition of the word under your cursor.
     --  This is where a variable was first declared, or where a function is defined, etc.
     --  To jump back, press <C-t>.
-    local snacks_picker = require('snacks').picker
-    map('gd', snacks_picker.lsp_definitions, '[G]oto [D]efinition')
+    map('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
 
     -- Find references for the word under your cursor.
-    map('gr', snacks_picker.lsp_references, '[G]oto [R]eferences')
+    map('gr', vim.lsp.buf.references, '[G]oto [R]eferences')
 
     -- Jump to the implementation of the word under your cursor.
     --  Useful when your language has ways of declaring types without an actual implementation.
-    map('gi', snacks_picker.lsp_implementations, '[G]oto [I]mplementation')
+    map('gi', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
 
     -- Jump to the type of the word under your cursor.
     --  Useful when you're not sure what type a variable is and you want to see
     --  the definition of its *type*, not where it was *defined*.
-    map('gt', snacks_picker.lsp_type_definitions, 'Type [D]efinition')
+    map('gt', vim.lsp.buf.type_definition, 'Type [D]efinition')
 
     -- Fuzzy find all the symbols in your current document.
     --  Symbols are things like variables, functions, types, etc.
-    map('gs', snacks_picker.lsp_symbols, '[S]ymbols')
+    map('gs', vim.lsp.buf.document_symbol, '[S]ymbols')
 
     -- Fuzzy find all the symbols in your current workspace.
     --  Similar to document symbols, except searches over your entire project.
-    map('gw', snacks_picker.lsp_workspace_symbols, '[W]orkspace [S]ymbols')
+    map('gw', vim.lsp.buf.workspace_symbol, '[W]orkspace [S]ymbols')
 
     -- Rename the variable under your cursor.
     --  Most Language Servers support renaming across files, etc.
@@ -149,7 +148,6 @@ return {
             cmd = { 'LspInstall', 'LspUninstall' },
         },
         'echasnovski/mini.nvim', -- Tweak LSP kind
-        'folke/snacks.nvim', -- snacks.picker
     },
     config = function()
         vim.api.nvim_create_autocmd('LspAttach', {
