@@ -51,6 +51,9 @@ return {
         require('mini.ai').setup()
         require('mini.surround').setup()
 
+        -- notify
+        require('mini.notify').setup()
+
         -- autochdir
         require('mini.misc').setup_auto_root()
     end,
