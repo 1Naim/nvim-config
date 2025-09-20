@@ -48,7 +48,11 @@ return {
         vim.keymap.set('n', '<leader><leader>', function() MiniPick.builtin.buffers() end, { desc = 'Search Buffers' })
 
         -- textobjects
-        require('mini.ai').setup()
+        require('mini.ai').setup {
+            custom_textobjects = {
+                F = require('mini.ai').gen_spec.treesitter({ a = '@function.outer', i = '@function.inner' }),
+            },
+        }
         require('mini.surround').setup()
 
         -- notify
