@@ -75,8 +75,9 @@ local function lsp_config(event)
                 vim.lsp.buf.clear_references()
                 vim.api.nvim_clear_autocmds { group = 'kickstart-lsp-highlight', buffer = event2.buf }
             end,
-        })    end
+        })
     end
+end
 
 return {
     'neovim/nvim-lspconfig',
@@ -85,7 +86,7 @@ return {
         {
             'mason-org/mason.nvim',
             opts = {},
-            cmd = { 'Mason', 'MasonUpdate', 'MasonInstall', 'MasonUninstall', 'MasonUninstallAll', 'MasonLog' }
+            cmd = { 'Mason', 'MasonUpdate', 'MasonInstall', 'MasonUninstall', 'MasonUninstallAll', 'MasonLog' },
         },
         {
             'mason-org/mason-lspconfig.nvim',
@@ -95,7 +96,7 @@ return {
     config = function()
         vim.api.nvim_create_autocmd('LspAttach', {
             group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
-            callback = lsp_config
+            callback = lsp_config,
         })
 
         -- Diagnostic Config

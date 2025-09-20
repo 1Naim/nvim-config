@@ -1,7 +1,7 @@
 return {
     'saghen/blink.cmp',
     version = '1.*',
-    event = 'VimEnter',
+    event = { "InsertEnter", "CmdlineEnter" },
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
     dependencies = { 'nvim-mini/mini.nvim' }, -- mini.icons
