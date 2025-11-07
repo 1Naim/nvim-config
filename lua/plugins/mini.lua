@@ -33,8 +33,29 @@ return {
         }
 
         -- Picker
-        require('mini.pick').setup()
         require('mini.extra').setup()
+        require('mini.pick').setup {
+            mappings = {
+                delete_char       = '<BS>',
+                delete_char_right = '<Del>',
+                delete_left       = '<C-e>',
+                delete_word       = '<C-w>',
+
+                move_down  = '<C-j>',
+                move_start = '<C-g>',
+                move_up    = '<C-k>',
+
+                scroll_down  = '<C-d>',
+                scroll_left  = '<C-h>',
+                scroll_right = '<C-l>',
+                scroll_up    = '<C-u>',
+            },
+
+            options = {
+                content_from_bottom = true,
+                use_cache = true,
+            },
+        }
 
         vim.keymap.set('n', '<leader>ff', function() MiniPick.builtin.files() end, { desc = 'Find Files' })
         vim.keymap.set('n', '<leader>fg', function() MiniPick.builtin.files({ tool = 'git'}) end, { desc = 'Git Files' })
@@ -48,12 +69,12 @@ return {
         vim.keymap.set('n', '<leader><leader>', function() MiniPick.builtin.buffers() end, { desc = 'Search Buffers' })
 
         -- textobjects
+        require('mini.surround').setup()
         require('mini.ai').setup {
             custom_textobjects = {
                 F = require('mini.ai').gen_spec.treesitter({ a = '@function.outer', i = '@function.inner' }),
             },
         }
-        require('mini.surround').setup()
 
         -- notify
         require('mini.notify').setup()
