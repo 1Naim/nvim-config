@@ -38,7 +38,7 @@ return {
                     vim.treesitter.start(buf, language)
 
                     -- replicate `indent = { enable = true }`
-                    -- vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+                    vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
                 end,
             })
 
