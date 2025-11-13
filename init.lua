@@ -34,6 +34,9 @@ vim.o.undofile = true
 -- Disable backups
 vim.o.backup = false
 
+-- Disable wrap
+vim.o.wrap = false
+
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
 vim.o.ignorecase = true
 vim.o.smartcase = true
