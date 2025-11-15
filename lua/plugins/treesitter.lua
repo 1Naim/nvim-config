@@ -39,9 +39,9 @@ return {
         config = function()
             local languages = {
                 'bash', 'fish',
-                'c', 'cpp', 'kconfig', 'make',
-                'gitcommit', 'html', 'markdown', 'markdown_inline',
-                'lua', 'java', 'python', 'r', 'rust'
+                'cpp', 'kconfig', 'make',
+                'gitcommit', 'html',
+                'java', 'python', 'r', 'rust'
             }
 
             require('nvim-treesitter').install(languages)
