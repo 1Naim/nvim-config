@@ -13,10 +13,6 @@ return {
                     return {
                         Comment = { fg = colors.comment, italic = false },
                         LineNr = { fg = colors.comment },
-                        BlinkCmpMenuSelection = {
-                            fg = colors.accent,
-                            reverse = true,
-                        },
                         NonText = { fg = '#3C424E' },
                         -- Transparency
                         Normal = { bg = 'None' },
