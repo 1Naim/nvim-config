@@ -28,6 +28,9 @@ vim.api.nvim_create_autocmd('UIEnter', {
 -- Save undo history
 vim.o.undofile = true
 
+-- No swap
+vim.o.swapfile = false
+
 -- Disable backups
 vim.o.backup = false
 
