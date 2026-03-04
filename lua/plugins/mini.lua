@@ -78,8 +78,5 @@ return {
 
         -- notify
         require('mini.notify').setup()
-
-        -- autochdir
-        require('mini.misc').setup_auto_root()
     end,
 }

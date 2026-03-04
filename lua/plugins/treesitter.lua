@@ -5,7 +5,11 @@ local function enable_treesitter(args)
     -- you need some mechanism to avoid running on buffers that do not
     -- correspond to a language (like oil.nvim buffers), this implementation
     -- checks if a parser exists for the current language
-    local language = vim.treesitter.language.get_lang(filetype) or filetype
+    local language = vim.treesitter.language.get_lang(filetype)
+    if not language then
+        return
+    end
+
     if not vim.treesitter.language.add(language) then
         return
     end
@@ -26,7 +30,7 @@ local function enable_treesitter(args)
     vim.treesitter.start(buf, language)
 
     -- replicate `indent = { enable = true }`
-    -- vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+    vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
 end
 
 return {
