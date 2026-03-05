@@ -1,5 +1,9 @@
 {
   "plugins": {
+    "blink-cmp-git": {
+      "rev": "10783593af764424018a95e75df6ad5a8b66fe07",
+      "src": "https://github.com/Kaiser-Yang/blink-cmp-git"
+    },
     "blink.cmp": {
       "rev": "1912be2ca1f7fc98ae5b2b12fad49525f3b366ec",
       "src": "https://github.com/Saghen/blink.cmp"

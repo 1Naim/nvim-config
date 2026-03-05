@@ -1,5 +1,8 @@
 MINI_NOW_IF_ARGS(function()
-    PACK_ADD({ 'https://github.com/Saghen/blink.cmp' })
+    PACK_ADD({
+        'https://github.com/Kaiser-Yang/blink-cmp-git',
+        'https://github.com/Saghen/blink.cmp'
+    })
 
     require('blink.cmp').setup {
         keymap = { preset = 'default' },
@@ -42,7 +45,17 @@ MINI_NOW_IF_ARGS(function()
         -- Default list of enabled providers defined so that you can extend it
         -- elsewhere in your config, without redefining it, due to `opts_extend`
         sources = {
-            default = { 'lsp', 'path', 'snippets', 'buffer' },
+            default = { 'git', 'lsp', 'path', 'snippets', 'buffer' },
+            providers = {
+                git = {
+                    module = 'blink-cmp-git',
+                    name = 'Git',
+                    enabled = function()
+                        return vim.tbl_contains({ 'octo', 'gitcommit', 'markdown' }, vim.bo.filetype)
+                    end,
+                    opts = {},
+                },
+            },
         },
 
         -- (Default) Rust fuzzy matcher for typo resistance and significantly better performance
