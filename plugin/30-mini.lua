@@ -95,4 +95,4 @@ mini_later(function()
     vim.keymap.set('n', '<leader>e', function() MiniFiles.open(vim.api.nvim_buf_get_name(0)) end)
 end)
 
-mini_later(function() require('mini.misc').setup_restore_cursor() end)
+mini_now_if_args(function() require('mini.misc').setup_restore_cursor() end)
