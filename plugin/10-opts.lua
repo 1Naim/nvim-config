@@ -49,6 +49,7 @@ vim.o.scrolloff = 12
 vim.o.confirm = true
 
 -- Indentation settings
+vim.o.smartindent = true
 vim.o.expandtab = true
 vim.o.softtabstop = 4
 vim.o.shiftwidth = 4
