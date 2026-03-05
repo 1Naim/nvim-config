@@ -84,4 +84,15 @@ mini_later(function()
     }
 end)
 
+mini_later(function()
+    require('mini.files').setup {
+        windows = {
+            preview = true,
+            width_preview = 75,
+        },
+    }
+
+    vim.keymap.set('n', '<leader>e', function() MiniFiles.open(vim.api.nvim_buf_get_name(0)) end)
+end)
+
 mini_later(function() require('mini.misc').setup_restore_cursor() end)
