@@ -1,5 +1,5 @@
-mini_later(function()
-    pack_add({ 'https://github.com/danymat/neogen' })
+MINI_LATER(function()
+    PACK_ADD({ 'https://github.com/danymat/neogen' })
 
     require('neogen').setup()
 

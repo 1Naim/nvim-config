@@ -1,12 +1,12 @@
-mini_now(function() require('mini.icons').setup() end)
+MINI_NOW(function() require('mini.icons').setup() end)
 
 -- notify
-mini_now(function() require('mini.notify').setup() end)
+MINI_NOW(function() require('mini.notify').setup() end)
 
-mini_now(function() require('mini.misc').setup_auto_root() end)
+MINI_NOW(function() require('mini.misc').setup_auto_root() end)
 
 -- statusline
-mini_now(function()
+MINI_NOW(function()
     local statusline = require 'mini.statusline'
     statusline.setup { use_icons = true }
     statusline.section_location = function()
@@ -15,10 +15,10 @@ mini_now(function()
 end)
 
 -- tabline
-mini_now(function() require('mini.tabline').setup() end)
+MINI_NOW(function() require('mini.tabline').setup() end)
 
 -- Indent scope
-mini_later(function()
+MINI_LATER(function()
     require('mini.indentscope').setup {
         draw = { animation = require('mini.indentscope').gen_animation.none() },
         symbol = '│',
@@ -26,8 +26,8 @@ mini_later(function()
 end)
 
 -- git
-mini_later(function() require('mini.git').setup() end)
-mini_later(function()
+MINI_LATER(function() require('mini.git').setup() end)
+MINI_LATER(function()
     require('mini.diff').setup {
         view = {
             style = 'sign',
@@ -37,8 +37,8 @@ mini_later(function()
 end)
 
 -- Picker
-mini_later(function() require('mini.extra').setup() end)
-mini_later(function()
+MINI_LATER(function() require('mini.extra').setup() end)
+MINI_LATER(function()
     require('mini.pick').setup {
         mappings = {
             delete_char       = '<BS>',
@@ -75,8 +75,8 @@ mini_later(function()
 end)
 
 -- textobjects
-mini_later(function() require('mini.surround').setup() end)
-mini_later(function()
+MINI_LATER(function() require('mini.surround').setup() end)
+MINI_LATER(function()
     require('mini.ai').setup {
         custom_textobjects = {
             F = require('mini.ai').gen_spec.treesitter({ a = '@function.outer', i = '@function.inner' }),
@@ -84,7 +84,7 @@ mini_later(function()
     }
 end)
 
-mini_later(function()
+MINI_LATER(function()
     require('mini.files').setup {
         windows = {
             preview = true,
@@ -95,4 +95,4 @@ mini_later(function()
     vim.keymap.set('n', '<leader>e', function() MiniFiles.open(vim.api.nvim_buf_get_name(0)) end)
 end)
 
-mini_now_if_args(function() require('mini.misc').setup_restore_cursor() end)
+MINI_NOW_IF_ARGS(function() require('mini.misc').setup_restore_cursor() end)

@@ -74,7 +74,7 @@ vim.g.suda_smart_edit = 1
 -- shada
 vim.o.shada = "'100,<50,s10,:1000,/100,@100,h" -- Limit ShaDa file (for startup)
 
-mini_later(function()
+MINI_LATER(function()
     -- See :help vim.diagnostic.Opts
     -- Diagnostic Config & Keymaps
     vim.diagnostic.config {

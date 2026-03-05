@@ -1,6 +1,6 @@
-mini_now_if_args(function() pack_add({ 'https://github.com/lambdalisue/vim-suda' }) end)
+MINI_NOW_IF_ARGS(function() PACK_ADD({ 'https://github.com/lambdalisue/vim-suda' }) end)
 
-mini_later(function() vim.cmd('packadd nvim.undotree') end)
+MINI_LATER(function() vim.cmd('packadd nvim.undotree') end)
 
 vim.api.nvim_create_autocmd('TextYankPost', {
     desc = 'Highlight when yanking (copying) text',

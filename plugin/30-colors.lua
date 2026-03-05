@@ -1,5 +1,5 @@
-mini_now(function()
-    pack_add({ 'https://github.com/Shatur/neovim-ayu' })
+MINI_NOW(function()
+    PACK_ADD({ 'https://github.com/Shatur/neovim-ayu' })
 
     local colors = require 'ayu.colors'
     colors.generate(false) -- Pass `true` to enable mirage

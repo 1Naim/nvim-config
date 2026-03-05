@@ -1,5 +1,5 @@
-mini_now_if_args(function()
-    pack_add({ 'https://github.com/neovim/nvim-lspconfig' })
+MINI_NOW_IF_ARGS(function()
+    PACK_ADD({ 'https://github.com/neovim/nvim-lspconfig' })
 
     vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),

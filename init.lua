@@ -9,7 +9,7 @@ vim.pack.add({ 'https://github.com/nvim-mini/mini.nvim' })
 -- See also:
 -- - `:h MiniMisc.safely()`
 local misc = require('mini.misc')
-mini_now = function(f) misc.safely('now', f) end
-mini_later = function(f) misc.safely('later', f) end
-mini_now_if_args = vim.fn.argc(-1) > 0 and mini_now or mini_later
-pack_add = vim.pack.add
+MINI_NOW = function(f) misc.safely('now', f) end
+MINI_LATER = function(f) misc.safely('later', f) end
+MINI_NOW_IF_ARGS = vim.fn.argc(-1) > 0 and MINI_NOW or MINI_LATER
+PACK_ADD = vim.pack.add

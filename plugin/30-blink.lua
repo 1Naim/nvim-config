@@ -1,5 +1,5 @@
-mini_now_if_args(function()
-    pack_add({ 'https://github.com/Saghen/blink.cmp' })
+MINI_NOW_IF_ARGS(function()
+    PACK_ADD({ 'https://github.com/Saghen/blink.cmp' })
 
     require('blink.cmp').setup {
         keymap = { preset = 'default' },

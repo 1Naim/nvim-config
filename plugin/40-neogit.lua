@@ -1,5 +1,5 @@
-mini_later(function()
-    pack_add({
+MINI_LATER(function()
+    PACK_ADD({
         'https://github.com/nvim-lua/plenary.nvim',
         'https://github.com/NeogitOrg/neogit',
     })

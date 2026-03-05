@@ -6,8 +6,8 @@ local languages = {
     'query', 'vim', 'vimdoc'
 }
 
-mini_now_if_args(function()
-    pack_add({
+MINI_NOW_IF_ARGS(function()
+    PACK_ADD({
         'https://github.com/nvim-treesitter/nvim-treesitter',
         'https://github.com/nvim-treesitter/nvim-treesitter-textobjects',
     })
