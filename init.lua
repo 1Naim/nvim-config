@@ -1,4 +1,4 @@
-vim.pack.add({ 'https://github.com/nvim-mini/mini.nvim' })
+vim.pack.add { 'https://github.com/nvim-mini/mini.nvim' }
 
 -- Loading helpers used to organize config into fail-safe parts. Example usage:
 -- - `now` - execute immediately. Use for what must be executed during startup.
@@ -8,7 +8,7 @@ vim.pack.add({ 'https://github.com/nvim-mini/mini.nvim' })
 --
 -- See also:
 -- - `:h MiniMisc.safely()`
-local misc = require('mini.misc')
+local misc = require 'mini.misc'
 MINI_NOW = function(f) misc.safely('now', f) end
 MINI_LATER = function(f) misc.safely('later', f) end
 MINI_NOW_IF_ARGS = vim.fn.argc(-1) > 0 and MINI_NOW or MINI_LATER

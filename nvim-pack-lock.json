@@ -8,6 +8,10 @@
       "rev": "1912be2ca1f7fc98ae5b2b12fad49525f3b366ec",
       "src": "https://github.com/Saghen/blink.cmp"
     },
+    "conform.nvim": {
+      "rev": "40dcec5555f960b0a04340d76eabdf4efe78599d",
+      "src": "https://github.com/stevearc/conform.nvim"
+    },
     "indent-o-matic": {
       "rev": "764da1f30b5bb4a49035c3abc9a586322296b812",
       "src": "https://github.com/Darazaki/indent-o-matic"

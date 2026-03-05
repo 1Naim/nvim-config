@@ -1,5 +1,5 @@
 MINI_NOW_IF_ARGS(function()
-    PACK_ADD({ 'https://github.com/Darazaki/indent-o-matic' })
+    PACK_ADD { 'https://github.com/Darazaki/indent-o-matic' }
 
     require('indent-o-matic').setup {
         -- The values indicated here are the defaults

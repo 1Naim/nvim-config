@@ -9,51 +9,53 @@ MINI_NOW(function() require('mini.misc').setup_auto_root() end)
 MINI_NOW(function()
     local statusline = require 'mini.statusline'
     statusline.setup { use_icons = true }
-    statusline.section_location = function()
-        return '%2l:%-2v'
-    end
+    statusline.section_location = function() return '%2l:%-2v' end
 end)
 
 -- tabline
 MINI_NOW(function() require('mini.tabline').setup() end)
 
 -- Indent scope
-MINI_LATER(function()
-    require('mini.indentscope').setup {
-        draw = { animation = require('mini.indentscope').gen_animation.none() },
-        symbol = '│',
-    }
-end)
+MINI_LATER(
+    function()
+        require('mini.indentscope').setup {
+            draw = { animation = require('mini.indentscope').gen_animation.none() },
+            symbol = '│',
+        }
+    end
+)
 
 -- git
 MINI_LATER(function() require('mini.git').setup() end)
-MINI_LATER(function()
-    require('mini.diff').setup {
-        view = {
-            style = 'sign',
-            signs = { add = '+', change = '~', delete = '_' },
-        },
-    }
-end)
+MINI_LATER(
+    function()
+        require('mini.diff').setup {
+            view = {
+                style = 'sign',
+                signs = { add = '+', change = '~', delete = '_' },
+            },
+        }
+    end
+)
 
 -- Picker
 MINI_LATER(function() require('mini.extra').setup() end)
 MINI_LATER(function()
     require('mini.pick').setup {
         mappings = {
-            delete_char       = '<BS>',
+            delete_char = '<BS>',
             delete_char_right = '<Del>',
-            delete_left       = '<C-e>',
-            delete_word       = '<C-w>',
+            delete_left = '<C-e>',
+            delete_word = '<C-w>',
 
-            move_down  = '<C-j>',
+            move_down = '<C-j>',
             move_start = '<C-g>',
-            move_up    = '<C-k>',
+            move_up = '<C-k>',
 
-            scroll_down  = '<C-d>',
-            scroll_left  = '<C-h>',
+            scroll_down = '<C-d>',
+            scroll_left = '<C-h>',
             scroll_right = '<C-l>',
-            scroll_up    = '<C-u>',
+            scroll_up = '<C-u>',
         },
 
         options = {
@@ -62,27 +64,82 @@ MINI_LATER(function()
         },
     }
 
-    vim.keymap.set('n', '<leader>ff', function() MiniPick.builtin.files() end, { desc = 'Find Files' })
-    vim.keymap.set('n', '<leader>fg', function() MiniPick.builtin.files({ tool = 'git'}) end, { desc = 'Git Files' })
-    vim.keymap.set('n', '<leader>fn', function(_) MiniPick.builtin.files(_, { source = { cwd = vim.fn.stdpath 'config' }}) end, { desc = 'Neovim Config' })
-    vim.keymap.set('n', '<leader>sh', function() MiniPick.builtin.help() end, { desc = 'Search Help' })
-    vim.keymap.set('n', '<leader>sk', function() MiniExtra.pickers.keymaps() end, { desc = 'Search Keymaps' })
-    vim.keymap.set('n', '<leader>sg', function() MiniPick.builtin.grep_live() end, { desc = 'Search by Grep' })
-    vim.keymap.set('n', '<leader>sd', function() MiniExtra.pickers.diagnostic() end, { desc = 'Search Diagnostic' })
-    vim.keymap.set('n', '<leader>sr', function() MiniPick.builtin.resume() end, { desc = 'Search Resume' })
-    vim.keymap.set('n', '<leader>fr', function() MiniExtra.pickers.oldfiles() end, { desc = 'Recent Files' })
-    vim.keymap.set('n', '<leader><leader>', function() MiniPick.builtin.buffers() end, { desc = 'Search Buffers' })
+    vim.keymap.set(
+        'n',
+        '<leader>ff',
+        function() MiniPick.builtin.files() end,
+        { desc = 'Find Files' }
+    )
+    vim.keymap.set(
+        'n',
+        '<leader>fg',
+        function() MiniPick.builtin.files { tool = 'git' } end,
+        { desc = 'Git Files' }
+    )
+    vim.keymap.set(
+        'n',
+        '<leader>fn',
+        function(_) MiniPick.builtin.files(_, { source = { cwd = vim.fn.stdpath 'config' } }) end,
+        { desc = 'Neovim Config' }
+    )
+    vim.keymap.set(
+        'n',
+        '<leader>sh',
+        function() MiniPick.builtin.help() end,
+        { desc = 'Search Help' }
+    )
+    vim.keymap.set(
+        'n',
+        '<leader>sk',
+        function() MiniExtra.pickers.keymaps() end,
+        { desc = 'Search Keymaps' }
+    )
+    vim.keymap.set(
+        'n',
+        '<leader>sg',
+        function() MiniPick.builtin.grep_live() end,
+        { desc = 'Search by Grep' }
+    )
+    vim.keymap.set(
+        'n',
+        '<leader>sd',
+        function() MiniExtra.pickers.diagnostic() end,
+        { desc = 'Search Diagnostic' }
+    )
+    vim.keymap.set(
+        'n',
+        '<leader>sr',
+        function() MiniPick.builtin.resume() end,
+        { desc = 'Search Resume' }
+    )
+    vim.keymap.set(
+        'n',
+        '<leader>fr',
+        function() MiniExtra.pickers.oldfiles() end,
+        { desc = 'Recent Files' }
+    )
+    vim.keymap.set(
+        'n',
+        '<leader><leader>',
+        function() MiniPick.builtin.buffers() end,
+        { desc = 'Search Buffers' }
+    )
 end)
 
 -- textobjects
 MINI_LATER(function() require('mini.surround').setup() end)
-MINI_LATER(function()
-    require('mini.ai').setup {
-        custom_textobjects = {
-            F = require('mini.ai').gen_spec.treesitter({ a = '@function.outer', i = '@function.inner' }),
-        },
-    }
-end)
+MINI_LATER(
+    function()
+        require('mini.ai').setup {
+            custom_textobjects = {
+                F = require('mini.ai').gen_spec.treesitter {
+                    a = '@function.outer',
+                    i = '@function.inner',
+                },
+            },
+        }
+    end
+)
 
 MINI_LATER(function()
     require('mini.files').setup {

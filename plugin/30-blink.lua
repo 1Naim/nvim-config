@@ -1,8 +1,8 @@
 MINI_NOW_IF_ARGS(function()
-    PACK_ADD({
+    PACK_ADD {
         'https://github.com/Kaiser-Yang/blink-cmp-git',
-        'https://github.com/Saghen/blink.cmp'
-    })
+        'https://github.com/Saghen/blink.cmp',
+    }
 
     require('blink.cmp').setup {
         keymap = { preset = 'default' },
@@ -10,7 +10,7 @@ MINI_NOW_IF_ARGS(function()
         appearance = {
             -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
             -- Adjusts spacing to ensure icons are aligned
-            nerd_font_variant = 'mono'
+            nerd_font_variant = 'mono',
         },
 
         -- (Default) Only show the documentation popup when manually triggered
@@ -36,10 +36,10 @@ MINI_NOW_IF_ARGS(function()
                                 local _, hl, _ = require('mini.icons').get('lsp', ctx.kind)
                                 return hl
                             end,
-                        }
-                    }
-                }
-            }
+                        },
+                    },
+                },
+            },
         },
 
         -- Default list of enabled providers defined so that you can extend it
@@ -51,7 +51,10 @@ MINI_NOW_IF_ARGS(function()
                     module = 'blink-cmp-git',
                     name = 'Git',
                     enabled = function()
-                        return vim.tbl_contains({ 'octo', 'gitcommit', 'markdown' }, vim.bo.filetype)
+                        return vim.tbl_contains(
+                            { 'octo', 'gitcommit', 'markdown' },
+                            vim.bo.filetype
+                        )
                     end,
                     opts = {},
                 },
@@ -63,6 +66,6 @@ MINI_NOW_IF_ARGS(function()
         -- when the Rust fuzzy matcher is not available, by using `implementation = "prefer_rust"`
         --
         -- See the fuzzy documentation for more information
-        fuzzy = { implementation = "lua" }
+        fuzzy = { implementation = 'lua' },
     }
 end)

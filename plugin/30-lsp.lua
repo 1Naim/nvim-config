@@ -1,5 +1,5 @@
 MINI_NOW_IF_ARGS(function()
-    PACK_ADD({ 'https://github.com/neovim/nvim-lspconfig' })
+    PACK_ADD { 'https://github.com/neovim/nvim-lspconfig' }
 
     vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
@@ -46,7 +46,6 @@ MINI_NOW_IF_ARGS(function()
             --  For example, in C this would take you to the header.
             map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
 
-
             -- The following two autocommands are used to highlight references of the
             -- word under your cursor when your cursor rests there for a little while.
             --    See `:help CursorHold` for information about when this is executed
@@ -54,7 +53,8 @@ MINI_NOW_IF_ARGS(function()
             -- When you move your cursor, the highlights will be cleared (the second autocommand).
             local client = assert(vim.lsp.get_client_by_id(event.data.client_id))
             if client:supports_method('textDocument/documentHighlight', event.buf) then
-                local highlight_augroup = vim.api.nvim_create_augroup('kickstart-lsp-highlight', { clear = false })
+                local highlight_augroup =
+                    vim.api.nvim_create_augroup('kickstart-lsp-highlight', { clear = false })
                 vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
                     buffer = event.buf,
                     group = highlight_augroup,
@@ -71,11 +71,14 @@ MINI_NOW_IF_ARGS(function()
                     group = vim.api.nvim_create_augroup('kickstart-lsp-detach', { clear = true }),
                     callback = function(event2)
                         vim.lsp.buf.clear_references()
-                        vim.api.nvim_clear_autocmds { group = 'kickstart-lsp-highlight', buffer = event2.buf }
+                        vim.api.nvim_clear_autocmds {
+                            group = 'kickstart-lsp-highlight',
+                            buffer = event2.buf,
+                        }
                     end,
                 })
             end
-        end
+        end,
     })
 
     local servers = {
@@ -103,21 +106,30 @@ MINI_NOW_IF_ARGS(function()
             on_init = function(client)
                 if client.workspace_folders then
                     local path = client.workspace_folders[1].name
-                    if path ~= vim.fn.stdpath 'config' and (vim.uv.fs_stat(path .. '/.luarc.json') or vim.uv.fs_stat(path .. '/.luarc.jsonc')) then return end
+                    if
+                        path ~= vim.fn.stdpath 'config'
+                        and (
+                            vim.uv.fs_stat(path .. '/.luarc.json')
+                            or vim.uv.fs_stat(path .. '/.luarc.jsonc')
+                        )
+                    then
+                        return
+                    end
                 end
 
-                client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
-                    runtime = {
-                        version = 'LuaJIT',
-                        path = { 'lua/?.lua', 'lua/?/init.lua' },
-                    },
-                    workspace = {
-                        checkThirdParty = false,
-                        -- NOTE: this is a lot slower and will cause issues when working on your own configuration.
-                        --  See https://github.com/neovim/nvim-lspconfig/issues/3189
-                        library = vim.api.nvim_get_runtime_file('', true),
-                    },
-                })
+                client.config.settings.Lua =
+                    vim.tbl_deep_extend('force', client.config.settings.Lua, {
+                        runtime = {
+                            version = 'LuaJIT',
+                            path = { 'lua/?.lua', 'lua/?/init.lua' },
+                        },
+                        workspace = {
+                            checkThirdParty = false,
+                            -- NOTE: this is a lot slower and will cause issues when working on your own configuration.
+                            --  See https://github.com/neovim/nvim-lspconfig/issues/3189
+                            library = vim.api.nvim_get_runtime_file('', true),
+                        },
+                    })
             end,
             settings = {
                 Lua = {

@@ -1,16 +1,26 @@
 local languages = {
-    'bash', 'fish', 'c',
-    'cpp', 'kconfig', 'make',
-    'gitcommit', 'html', 'lua',
-    'markdown', 'python', 'rust',
-    'query', 'vim', 'vimdoc'
+    'bash',
+    'fish',
+    'c',
+    'cpp',
+    'kconfig',
+    'make',
+    'gitcommit',
+    'html',
+    'lua',
+    'markdown',
+    'python',
+    'rust',
+    'query',
+    'vim',
+    'vimdoc',
 }
 
 MINI_NOW_IF_ARGS(function()
-    PACK_ADD({
+    PACK_ADD {
         'https://github.com/nvim-treesitter/nvim-treesitter',
         'https://github.com/nvim-treesitter/nvim-treesitter-textobjects',
-    })
+    }
 
     require('nvim-treesitter').install(languages)
     vim.treesitter.language.register('bash', 'PKGBUILD')
@@ -25,19 +35,19 @@ MINI_NOW_IF_ARGS(function()
             -- correspond to a language (like oil.nvim buffers), this implementation
             -- checks if a parser exists for the current language
             local language = vim.treesitter.language.get_lang(filetype)
-            if not language then
-                return
-            end
+            if not language then return end
 
-            if not vim.treesitter.language.add(language) then
-                return
-            end
+            if not vim.treesitter.language.add(language) then return end
 
             -- Disable for files that are too big
             local max_filesize = 1024 * 1024 * 25 -- 25MB
             local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
             if ok and stats and stats.size > max_filesize then
-                vim.notify('Disabling treesitter because filesize is too large', vim.log.levels.WARN, { title = 'Treesitter' })
+                vim.notify(
+                    'Disabling treesitter because filesize is too large',
+                    vim.log.levels.WARN,
+                    { title = 'Treesitter' }
+                )
                 return true
             end
 
@@ -51,12 +61,15 @@ MINI_NOW_IF_ARGS(function()
             -- replicate `indent = { enable = true }`
             -- still broken
             -- vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-        end
+        end,
     })
 
     vim.api.nvim_create_autocmd('PackChanged', {
         desc = 'Handle nvim-treesitter updates',
-        group = vim.api.nvim_create_augroup('nvim-treesitter-pack-changed-update-handler', { clear = true }),
+        group = vim.api.nvim_create_augroup(
+            'nvim-treesitter-pack-changed-update-handler',
+            { clear = true }
+        ),
         callback = function(event)
             if event.data.kind == 'update' and event.data.spec.name == 'nvim-treesitter' then
                 vim.notify('nvim-treesitter updated, running TSUpdate...', vim.log.levels.INFO)
