@@ -83,3 +83,5 @@ mini_later(function()
         },
     }
 end)
+
+mini_later(function() require('mini.misc').setup_restore_cursor() end)
