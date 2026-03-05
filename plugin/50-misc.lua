@@ -1,7 +1,6 @@
 mini_now_if_args(function() pack_add({ 'https://github.com/lambdalisue/vim-suda' }) end)
 
--- TODO: Add undotree
-mini_later(function() vim.cmd('packadd! nohlsearch') end)
+mini_later(function() vim.cmd('packadd nvim.undotree') end)
 
 vim.api.nvim_create_autocmd('TextYankPost', {
     desc = 'Highlight when yanking (copying) text',
