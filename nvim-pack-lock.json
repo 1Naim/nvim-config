@@ -45,7 +45,7 @@
       "src": "https://github.com/nvim-lua/plenary.nvim"
     },
     "render-markdown.nvim": {
-      "rev": "1641b434bda26e0f4e3610985b3357fc213cf834",
+      "rev": "bd482f9a4827c9422231a7db1439c5cff1e69ae0",
       "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
     },
     "vim-suda": {

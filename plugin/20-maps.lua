@@ -33,3 +33,5 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 vim.keymap.set('n', '<Esc>', vim.cmd.nohlsearch)
 vim.keymap.set('n', '<leader>fu', vim.cmd.Undotree)
 
+-- Update plugins
+vim.keymap.set('n', '<leader>pu', function() vim.pack.update() end)
