@@ -45,6 +45,7 @@ vim.o.timeoutlen = 300
 --  See `:help 'list'`
 --  and `:help 'listchars'`
 vim.o.list = true
+vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.o.scrolloff = 12
@@ -71,6 +72,8 @@ vim.opt.incsearch = true
 -- suda smart edit
 vim.g.suda_smart_edit = 1
 
+vim.o.signcolumn = 'yes:2'
+
 -- shada
 vim.o.shada = "'100,<50,s10,:1000,/100,@100,h" -- Limit ShaDa file (for startup)
 
@@ -82,6 +85,14 @@ MINI_LATER(function()
         severity_sort = true,
         float = { border = 'rounded', source = 'if_many' },
         underline = { severity = vim.diagnostic.severity.ERROR },
+        signs = {
+            text = {
+                [vim.diagnostic.severity.ERROR] = '󰅚 ',
+                [vim.diagnostic.severity.WARN] = '󰀪 ',
+                [vim.diagnostic.severity.INFO] = '󰋽 ',
+                [vim.diagnostic.severity.HINT] = '󰌶 ',
+            },
+        },
 
         -- Can switch between these as you prefer
         virtual_text = true, -- Text shows up at the end of the line
