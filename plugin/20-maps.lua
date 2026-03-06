@@ -41,6 +41,12 @@ vim.keymap.set('n', '<leader>fu', vim.cmd.Undotree)
 -- Update plugins
 vim.keymap.set('n', '<leader>pu', function() vim.pack.update() end)
 
+vim.keymap.set({ 'n', 'v' }, '<leader>gb', function()
+    local line_number = vim.fn.line '.' -- Get the current line number. See `:h line()`
+    local filename = vim.api.nvim_buf_get_name(0)
+    print(vim.system({ 'git', 'blame', '-L', line_number .. ',+1', filename }):wait().stdout)
+end)
+
 -- Conditional mappings for LSP
 vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
