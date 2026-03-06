@@ -7,8 +7,8 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     callback = function() vim.hl.on_yank() end,
 })
 
--- Set root directory
-vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufReadPre' }, {
+vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufReadPost' }, {
+    desc = 'Automatically set the root directory',
     callback = function()
         local kernel_root = '/mnt/Media/CachyOS-Git/linux/main'
         local file = vim.api.nvim_buf_get_name(0)
