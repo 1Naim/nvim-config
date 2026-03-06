@@ -5,7 +5,7 @@
       "src": "https://github.com/Kaiser-Yang/blink-cmp-git"
     },
     "blink.cmp": {
-      "rev": "1912be2ca1f7fc98ae5b2b12fad49525f3b366ec",
+      "rev": "e9556f9b981f395e22a6bfd69fd5f3008a2a6cd9",
       "src": "https://github.com/Saghen/blink.cmp"
     },
     "conform.nvim": {
@@ -25,7 +25,7 @@
       "src": "https://github.com/danymat/neogen"
     },
     "neogit": {
-      "rev": "515e8cb9c3430a064ec3d9affd499b94f71b3120",
+      "rev": "7073f3aafc9030d457838995106784a9d1873b3b",
       "src": "https://github.com/NeogitOrg/neogit"
     },
     "neovim-ayu": {
@@ -33,11 +33,11 @@
       "src": "https://github.com/Shatur/neovim-ayu"
     },
     "nvim-lspconfig": {
-      "rev": "ead0f5f342d8d323441e7d4b88f0fc436a81ad5f",
+      "rev": "2b87d107942b9eebef768512f5849330335a9493",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
-      "rev": "544320a9cf5d6bf539ec1cc54d393064015670c4",
+      "rev": "1970f0d3bbb99c7659e58914948749437c7b7398",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "nvim-treesitter-textobjects": {
@@ -49,7 +49,7 @@
       "src": "https://github.com/nvim-lua/plenary.nvim"
     },
     "render-markdown.nvim": {
-      "rev": "bd482f9a4827c9422231a7db1439c5cff1e69ae0",
+      "rev": "907505549edc2f90c82fc429348af03ee8c3a825",
       "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
     },
     "vim-suda": {

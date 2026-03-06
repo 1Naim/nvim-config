@@ -52,11 +52,21 @@ MINI_NOW_IF_ARGS(function()
                     name = 'Git',
                     enabled = function()
                         return vim.tbl_contains(
-                            { 'octo', 'gitcommit', 'markdown' },
+                            { 'gitsendemail', 'gitcommit', 'markdown' },
                             vim.bo.filetype
                         )
                     end,
-                    opts = {},
+                    opts = {
+                        commit = {
+                            -- Insert first 12 hash and commit title
+                            get_insert_text = function(item)
+                                return item:match('commit ([^\n]*)'):sub(1, 12)
+                                    .. ' ("'
+                                    .. item:match '\n\n%s*([^\n]*)'
+                                    .. '")'
+                            end,
+                        },
+                    },
                 },
             },
         },
@@ -67,5 +77,6 @@ MINI_NOW_IF_ARGS(function()
         --
         -- See the fuzzy documentation for more information
         fuzzy = { implementation = 'lua' },
+        signature = { enabled = true },
     }
 end)
