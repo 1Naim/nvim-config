@@ -3,8 +3,6 @@ MINI_NOW(function() require('mini.icons').setup() end)
 -- notify
 MINI_NOW(function() require('mini.notify').setup() end)
 
-MINI_NOW(function() require('mini.misc').setup_auto_root() end)
-
 -- statusline
 MINI_NOW(function()
     local statusline = require 'mini.statusline'
