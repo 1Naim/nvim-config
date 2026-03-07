@@ -12,7 +12,7 @@ MINI_NOW(function()
                 NonText = { fg = '#3C424E' },
                 -- Transparency
                 Normal = { bg = 'None' },
-                NormalFloat = { bg = 'none' },
+                -- NormalFloat = { bg = 'none' },
                 SignColumn = { bg = 'None' },
                 Folded = { bg = 'None' },
                 FoldColumn = { bg = 'None' },
