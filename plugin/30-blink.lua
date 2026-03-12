@@ -1,7 +1,10 @@
 MINI_NOW_IF_ARGS(function()
     PACK_ADD {
         'https://github.com/Kaiser-Yang/blink-cmp-git',
-        'https://github.com/Saghen/blink.cmp',
+        {
+            src = 'https://github.com/saghen/blink.cmp',
+            version = vim.version.range '1.*',
+        },
     }
 
     require('blink.cmp').setup {
@@ -71,12 +74,6 @@ MINI_NOW_IF_ARGS(function()
             },
         },
 
-        -- (Default) Rust fuzzy matcher for typo resistance and significantly better performance
-        -- You may use a lua implementation instead by using `implementation = "lua"` or fallback to the lua implementation,
-        -- when the Rust fuzzy matcher is not available, by using `implementation = "prefer_rust"`
-        --
-        -- See the fuzzy documentation for more information
-        fuzzy = { implementation = 'lua' },
         signature = { enabled = true },
     }
 end)
