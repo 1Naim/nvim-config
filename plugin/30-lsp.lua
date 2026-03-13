@@ -2,7 +2,6 @@ MINI_NOW_IF_ARGS(function()
     PACK_ADD { 'https://github.com/neovim/nvim-lspconfig' }
 
     local servers = {
-        basedpyright = {},
         bashls = {
             settings = {
                 bashIde = {
@@ -59,6 +58,7 @@ MINI_NOW_IF_ARGS(function()
                 },
             },
         },
+        pyright = {},
         rust_analyzer = {},
     }
 

@@ -34,7 +34,7 @@
       "src": "https://github.com/Shatur/neovim-ayu"
     },
     "nvim-lspconfig": {
-      "rev": "0203a9608d63eda57679b01e69f33a7b4c34b0d1",
+      "rev": "3addf05a791ea256c36438220aced91c03071712",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
