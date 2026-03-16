@@ -58,7 +58,7 @@ MINI_NOW_IF_ARGS(function()
                 },
             },
         },
-        pyright = {},
+        pyrefly = {},
         rust_analyzer = {},
     }
 
