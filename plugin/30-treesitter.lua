@@ -23,7 +23,6 @@ MINI_NOW_IF_ARGS(function()
     }
 
     require('nvim-treesitter').install(languages)
-    vim.treesitter.language.register('bash', 'PKGBUILD')
 
     vim.api.nvim_create_autocmd('FileType', {
         group = vim.api.nvim_create_augroup('treesitter.setup', {}),

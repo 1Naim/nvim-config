@@ -3,7 +3,7 @@ MINI_NOW_IF_ARGS(function()
         'https://github.com/Kaiser-Yang/blink-cmp-git',
         {
             src = 'https://github.com/saghen/blink.cmp',
-            version = vim.version.range '1.*',
+            version = vim.version.range '1.x',
         },
     }
 

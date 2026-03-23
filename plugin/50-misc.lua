@@ -39,3 +39,12 @@ vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
         vim.fn.setpos('.', save_cursor)
     end,
 })
+
+vim.filetype.add {
+    pattern = {
+        ['.*git/config'] = 'gitconfig',
+    },
+    filename = {
+        ['PKGBUILD'] = 'sh',
+    },
+}
