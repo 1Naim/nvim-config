@@ -58,8 +58,7 @@ MINI_NOW_IF_ARGS(function()
             vim.treesitter.start(buf, language)
 
             -- replicate `indent = { enable = true }`
-            -- still broken
-            -- vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+            vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
         end,
     })
 
