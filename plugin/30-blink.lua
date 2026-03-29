@@ -1,6 +1,5 @@
 MINI_NOW_IF_ARGS(function()
     PACK_ADD {
-        'https://github.com/Kaiser-Yang/blink-cmp-git',
         {
             src = 'https://github.com/saghen/blink.cmp',
             version = vim.version.range '1.x',
@@ -48,39 +47,7 @@ MINI_NOW_IF_ARGS(function()
         -- Default list of enabled providers defined so that you can extend it
         -- elsewhere in your config, without redefining it, due to `opts_extend`
         sources = {
-            default = { 'git', 'lsp', 'path', 'buffer' },
-            providers = {
-                git = {
-                    module = 'blink-cmp-git',
-                    name = 'Git',
-                    enabled = function()
-                        return vim.tbl_contains(
-                            { 'gitsendemail', 'gitcommit', 'markdown' },
-                            vim.bo.filetype
-                        )
-                    end,
-                    opts = {
-                        commit = {
-                            enable = function()
-                                if vim.fn.getcwd(0, 0) == '/mnt/Media/CachyOS-Git/linux/main' then
-                                    return false
-                                end
-
-                                local utils = require('blink-cmp-git.utils')
-                                return utils.is_inside_git_repo()
-                            end,
-
-                            -- Insert first 12 hash and commit title
-                            get_insert_text = function(item)
-                                return item:match('commit ([^\n]*)'):sub(1, 12)
-                                    .. ' ("'
-                                    .. item:match '\n\n%s*([^\n]*)'
-                                    .. '")'
-                            end,
-                        },
-                    },
-                },
-            },
+            default = { 'lsp', 'path', 'buffer' },
         },
 
         signature = { enabled = true },
