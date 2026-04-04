@@ -1,5 +1,6 @@
 MINI_NOW_IF_ARGS(function()
     PACK_ADD {
+        'https://github.com/giuxtaposition/blink-cmp-copilot',
         {
             src = 'https://github.com/saghen/blink.cmp',
             version = vim.version.range '1.x',
@@ -47,7 +48,15 @@ MINI_NOW_IF_ARGS(function()
         -- Default list of enabled providers defined so that you can extend it
         -- elsewhere in your config, without redefining it, due to `opts_extend`
         sources = {
-            default = { 'lsp', 'path', 'buffer' },
+            default = { 'lsp', 'path', 'buffer', 'copilot' },
+            providers = {
+                copilot = {
+                    name = 'copilot',
+                    module = 'blink-cmp-copilot',
+                    score_offset = 100,
+                    async = true,
+                },
+            },
         },
 
         signature = { enabled = true },
