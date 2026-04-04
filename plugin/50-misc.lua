@@ -40,19 +40,11 @@ vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
     end,
 })
 
-MINI_NOW_IF_ARGS(function()
-    vim.filetype.add {
-        pattern = {
-            ['.*git/config'] = 'gitconfig',
-            ['PKGBUILD'] = 'sh',
-        },
-    }
-
-    vim.api.nvim_create_autocmd('FileType', {
-        pattern = { 'sh', 'PKGBUILD' },
-        callback = function()
-            vim.bo.smartindent = true
-            vim.bo.indentexpr = ''
-        end
-    })
-end)
+vim.filetype.add {
+    pattern = {
+        ['.*git/config'] = 'gitconfig',
+    },
+    filename = {
+        ['PKGBUILD'] = 'sh',
+    },
+}
