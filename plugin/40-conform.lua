@@ -6,6 +6,7 @@ MINI_LATER(function()
             c = { 'clang-format' },
             cpp = { 'clang-format' },
             lua = { 'stylua' },
+            rust = { "rustfmt", lsp_format = "fallback" },
         },
     }
 

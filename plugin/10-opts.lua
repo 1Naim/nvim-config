@@ -62,7 +62,7 @@ vim.o.softtabstop = 4
 vim.o.shiftwidth = 4
 
 -- Mark the 80th column
-vim.o.colorcolumn = '80'
+vim.o.colorcolumn = '100'
 vim.o.textwidth = 100
 
 -- Search options

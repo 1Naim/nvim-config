@@ -11,9 +11,6 @@ local languages = {
     'markdown',
     'python',
     'rust',
-    'query',
-    'vim',
-    'vimdoc',
 }
 
 MINI_NOW_IF_ARGS(function()
