@@ -10,11 +10,11 @@ MINI_LATER(function()
 end)
 
 MINI_NOW(function()
-    vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufReadPost' }, {
+    vim.api.nvim_create_autocmd({ 'BufEnter', 'BufNewFile', 'BufReadPost' }, {
         desc = 'Automatically set the root directory',
-        callback = function()
+        callback = function(args)
             local kernel_root = '/mnt/Media/CachyOS-Git/linux/main'
-            local file = vim.api.nvim_buf_get_name(0)
+            local file = vim.api.nvim_buf_get_name(args.buf)
 
             if vim.startswith(file, kernel_root) then
                 vim.cmd('lcd ' .. vim.fn.fnameescape(kernel_root))
