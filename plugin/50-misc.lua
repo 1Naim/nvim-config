@@ -10,18 +10,24 @@ MINI_LATER(function()
 end)
 
 MINI_NOW(function()
-    vim.api.nvim_create_autocmd({ 'BufEnter', 'BufNewFile', 'BufReadPost' }, {
+    vim.api.nvim_create_autocmd({ 'BufEnter' }, {
         desc = 'Automatically set the root directory',
+        nested = true,
         callback = function(args)
             local kernel_root = '/mnt/Media/CachyOS-Git/linux/main'
             local file = vim.api.nvim_buf_get_name(args.buf)
 
             if vim.startswith(file, kernel_root) then
-                vim.cmd('lcd ' .. vim.fn.fnameescape(kernel_root))
+                vim.fn.chdir(kernel_root)
                 return
             end
 
-            require('mini.misc').setup_auto_root()
+            local root = require('mini.misc').find_root(args.buf, { '.git', 'Makefile' }, nil)
+            if root == nil then
+                return
+            end
+
+            vim.fn.chdir(root)
         end,
     })
 end)
