@@ -3,7 +3,7 @@ MINI_LATER(function()
 
     require('render-markdown').setup {
         completions = { lsp = { enabled = true } },
-        latex = { enabled = false },
+        latex = { enabled = true },
         yaml = { enabled = false },
     }
 end)
