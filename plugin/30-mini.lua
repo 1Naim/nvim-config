@@ -1,156 +1,130 @@
-MINI_NOW(function() require('mini.icons').setup() end)
+PACK_ADD { 'https://github.com/nvim-mini/mini.nvim' }
+
+require('mini.icons').setup()
 
 -- autochdir
-MINI_NOW(function() require('mini.misc').setup_auto_root({ '.git' }) end)
+require('mini.misc').setup_auto_root { '.git' }
 
 -- notify
-MINI_NOW(function() require('mini.notify').setup() end)
+require('mini.notify').setup()
 
 -- statusline
-MINI_NOW(function()
-    local statusline = require 'mini.statusline'
-    statusline.setup { use_icons = true }
-    statusline.section_location = function() return '%2l:%-2v' end
-end)
+local statusline = require 'mini.statusline'
+statusline.setup { use_icons = true }
+statusline.section_location = function() return '%2l:%-2v' end
 
 -- tabline
-MINI_NOW(function() require('mini.tabline').setup() end)
+require('mini.tabline').setup()
 
 -- Indent scope
-MINI_LATER(
-    function()
-        require('mini.indentscope').setup {
-            draw = { animation = require('mini.indentscope').gen_animation.none() },
-            symbol = '│',
-        }
-    end
-)
+require('mini.indentscope').setup {
+    draw = { animation = require('mini.indentscope').gen_animation.none() },
+    symbol = '│',
+}
 
 -- git
-MINI_LATER(function() require('mini.git').setup() end)
-MINI_LATER(
-    function()
-        require('mini.diff').setup {
-            view = {
-                style = 'sign',
-                signs = { add = '+', change = '~', delete = '_' },
-            },
-        }
-    end
-)
+require('mini.git').setup()
+require('mini.diff').setup {
+    view = {
+        style = 'sign',
+        signs = { add = '+', change = '~', delete = '_' },
+    },
+}
 
 -- Picker
-MINI_LATER(function() require('mini.extra').setup() end)
-MINI_LATER(function()
-    require('mini.pick').setup {
-        mappings = {
-            delete_char = '<BS>',
-            delete_char_right = '<Del>',
-            delete_left = '<C-e>',
-            delete_word = '<C-w>',
+require('mini.extra').setup()
+require('mini.pick').setup {
+    mappings = {
+        delete_char = '<BS>',
+        delete_char_right = '<Del>',
+        delete_left = '<C-e>',
+        delete_word = '<C-w>',
 
-            move_down = '<C-j>',
-            move_start = '<C-g>',
-            move_up = '<C-k>',
+        move_down = '<C-j>',
+        move_start = '<C-g>',
+        move_up = '<C-k>',
 
-            scroll_down = '<C-d>',
-            scroll_left = '<C-h>',
-            scroll_right = '<C-l>',
-            scroll_up = '<C-u>',
-        },
+        scroll_down = '<C-d>',
+        scroll_left = '<C-h>',
+        scroll_right = '<C-l>',
+        scroll_up = '<C-u>',
+    },
 
-        options = {
-            content_from_bottom = true,
-            use_cache = true,
-        },
-    }
+    options = {
+        content_from_bottom = true,
+        use_cache = true,
+    },
+}
 
-    vim.keymap.set(
-        'n',
-        '<leader>ff',
-        function() MiniPick.builtin.files() end,
-        { desc = 'Find Files' }
-    )
-    vim.keymap.set(
-        'n',
-        '<leader>fg',
-        function() MiniPick.builtin.files { tool = 'git' } end,
-        { desc = 'Git Files' }
-    )
-    vim.keymap.set(
-        'n',
-        '<leader>fn',
-        function(_) MiniPick.builtin.files(_, { source = { cwd = vim.fn.stdpath 'config' } }) end,
-        { desc = 'Neovim Config' }
-    )
-    vim.keymap.set(
-        'n',
-        '<leader>sh',
-        function() MiniPick.builtin.help() end,
-        { desc = 'Search Help' }
-    )
-    vim.keymap.set(
-        'n',
-        '<leader>sk',
-        function() MiniExtra.pickers.keymaps() end,
-        { desc = 'Search Keymaps' }
-    )
-    vim.keymap.set(
-        'n',
-        '<leader>sg',
-        function() MiniPick.builtin.grep_live() end,
-        { desc = 'Search by Grep' }
-    )
-    vim.keymap.set(
-        'n',
-        '<leader>sd',
-        function() MiniExtra.pickers.diagnostic() end,
-        { desc = 'Search Diagnostic' }
-    )
-    vim.keymap.set(
-        'n',
-        '<leader>sr',
-        function() MiniPick.builtin.resume() end,
-        { desc = 'Search Resume' }
-    )
-    vim.keymap.set(
-        'n',
-        '<leader>fr',
-        function() MiniExtra.pickers.oldfiles() end,
-        { desc = 'Recent Files' }
-    )
-    vim.keymap.set(
-        'n',
-        '<leader><leader>',
-        function() MiniPick.builtin.buffers() end,
-        { desc = 'Search Buffers' }
-    )
-end)
-
--- textobjects
-MINI_LATER(function() require('mini.surround').setup() end)
-MINI_LATER(
-    function()
-        require('mini.ai').setup {
-            custom_textobjects = {
-                F = require('mini.ai').gen_spec.treesitter {
-                    a = '@function.outer',
-                    i = '@function.inner',
-                },
-            },
-        }
-    end
+vim.keymap.set('n', '<leader>ff', function() MiniPick.builtin.files() end, { desc = 'Find Files' })
+vim.keymap.set(
+    'n',
+    '<leader>fg',
+    function() MiniPick.builtin.files { tool = 'git' } end,
+    { desc = 'Git Files' }
+)
+vim.keymap.set(
+    'n',
+    '<leader>fn',
+    function(_) MiniPick.builtin.files(_, { source = { cwd = vim.fn.stdpath 'config' } }) end,
+    { desc = 'Neovim Config' }
+)
+vim.keymap.set('n', '<leader>sh', function() MiniPick.builtin.help() end, { desc = 'Search Help' })
+vim.keymap.set(
+    'n',
+    '<leader>sk',
+    function() MiniExtra.pickers.keymaps() end,
+    { desc = 'Search Keymaps' }
+)
+vim.keymap.set(
+    'n',
+    '<leader>sg',
+    function() MiniPick.builtin.grep_live() end,
+    { desc = 'Search by Grep' }
+)
+vim.keymap.set(
+    'n',
+    '<leader>sd',
+    function() MiniExtra.pickers.diagnostic() end,
+    { desc = 'Search Diagnostic' }
+)
+vim.keymap.set(
+    'n',
+    '<leader>sr',
+    function() MiniPick.builtin.resume() end,
+    { desc = 'Search Resume' }
+)
+vim.keymap.set(
+    'n',
+    '<leader>fr',
+    function() MiniExtra.pickers.oldfiles() end,
+    { desc = 'Recent Files' }
+)
+vim.keymap.set(
+    'n',
+    '<leader><leader>',
+    function() MiniPick.builtin.buffers() end,
+    { desc = 'Search Buffers' }
 )
 
-MINI_LATER(function()
-    require('mini.files').setup {
-        windows = {
-            preview = true,
-            width_preview = 75,
+-- textobjects
+require('mini.surround').setup()
+require('mini.ai').setup {
+    custom_textobjects = {
+        F = require('mini.ai').gen_spec.treesitter {
+            a = '@function.outer',
+            i = '@function.inner',
         },
-    }
+    },
+}
 
-    vim.keymap.set('n', '<leader>e', function() MiniFiles.open(vim.api.nvim_buf_get_name(0)) end)
-end)
+require('mini.files').setup {
+    windows = {
+        preview = true,
+        width_preview = 75,
+    },
+}
 
-MINI_NOW_IF_ARGS(function() require('mini.misc').setup_restore_cursor() end)
+vim.keymap.set('n', '<leader>e', function() MiniFiles.open(vim.api.nvim_buf_get_name(0)) end)
+
+require('mini.misc').setup_restore_cursor()

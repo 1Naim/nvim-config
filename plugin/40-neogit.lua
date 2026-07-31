@@ -1,12 +1,10 @@
-MINI_LATER(function()
-    PACK_ADD {
-        'https://github.com/nvim-lua/plenary.nvim',
-        'https://github.com/NeogitOrg/neogit',
-    }
+PACK_ADD {
+    'https://github.com/nvim-lua/plenary.nvim',
+    'https://github.com/NeogitOrg/neogit',
+}
 
-    require('neogit').setup {
-        integrations = { mini_pick = true },
-    }
+require('neogit').setup {
+    integrations = { mini_pick = true },
+}
 
-    vim.keymap.set('n', '<leader>gg', vim.cmd.Neogit)
-end)
+vim.keymap.set('n', '<leader>gg', vim.cmd.Neogit)
