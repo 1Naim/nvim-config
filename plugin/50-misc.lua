@@ -9,29 +9,6 @@ MINI_LATER(function()
     })
 end)
 
-MINI_NOW(function()
-    vim.api.nvim_create_autocmd({ 'BufEnter' }, {
-        desc = 'Automatically set the root directory',
-        nested = true,
-        callback = function(args)
-            local kernel_root = '/mnt/Media/CachyOS-Git/linux/main'
-            local file = vim.api.nvim_buf_get_name(args.buf)
-
-            if vim.startswith(file, kernel_root) then
-                vim.fn.chdir(kernel_root)
-                return
-            end
-
-            local root = require('mini.misc').find_root(args.buf, { '.git', 'Makefile' }, nil)
-            if root == nil then
-                return
-            end
-
-            vim.fn.chdir(root)
-        end,
-    })
-end)
-
 -- Delete trailing whitespaces on write
 MINI_LATER(function()
     vim.api.nvim_create_autocmd({ 'BufWritePre' }, {

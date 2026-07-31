@@ -1,5 +1,8 @@
 MINI_NOW(function() require('mini.icons').setup() end)
 
+-- autochdir
+MINI_NOW(function() require('mini.misc').setup_auto_root({ '.git' }) end)
+
 -- notify
 MINI_NOW(function() require('mini.notify').setup() end)
 
