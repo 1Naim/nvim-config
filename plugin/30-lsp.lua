@@ -20,6 +20,9 @@ local servers = {
             '--enable-config',
         },
     },
+    cssls = {},
+    eslint = {},
+    html = {},
     lua_ls = {
         on_init = function(client)
             if client.workspace_folders then
@@ -59,6 +62,7 @@ local servers = {
         },
         pyrefly = {},
         rust_analyzer = {},
+        vtsls = {},
     }
 
     for server, config in pairs(servers) do
